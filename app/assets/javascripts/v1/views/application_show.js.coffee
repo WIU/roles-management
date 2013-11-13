@@ -14,7 +14,7 @@ class DssRm.Views.ApplicationShow extends Backbone.View
     "change table#roles input" : "persistRoleChanges"
 
   initialize: (options) ->
-    @$el.html JST["templates/applications/show"](application: @model)
+    @$el.html JST["v1/templates/applications/show"](application: @model)
     @listenTo @model, "sync", @render
     @listenTo @model.roles, "add remove", @renderRoles
     

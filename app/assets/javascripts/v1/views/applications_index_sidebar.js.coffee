@@ -4,7 +4,7 @@ DssRm.Views.ApplicationsIndexSidebar = Backbone.View.extend(
   className: "span3 disable-text-select"
   
   initialize: (options) ->
-    @$el.html JST["templates/applications/sidebar"]()
+    @$el.html JST["v1/templates/applications/sidebar"]()
     
     # Re-render the sidebar when favorites, etc. are added/removed
     DssRm.view_state.bookmarks.on 'reset destroy', @render, this

@@ -15,7 +15,7 @@ class DssRm.Views.GroupShow extends Backbone.View
     "change table#rules select"      : "persistRuleChanges"
 
   initialize: ->
-    @$el.html JST["templates/entities/show_group"](model: @model)
+    @$el.html JST["v1/templates/entities/show_group"](model: @model)
     @listenTo @model, "sync", @render
     readonly = @model.isReadOnly()
     
@@ -138,7 +138,7 @@ class DssRm.Views.GroupShow extends Backbone.View
   
   # Renders a single rule. Does not add to DOM.
   renderRule: (rule) ->
-    $rule = $(JST["templates/entities/group_rule"]())
+    $rule = $(JST["v1/templates/entities/group_rule"]())
     
     $rule.data "rule_cid", rule.cid
     $rule.find("td:nth-child(1) select").val rule.get('column')

@@ -10,7 +10,7 @@ DssRm.Views.ApplicationItem = Backbone.View.extend(
     
     owner_ids = @model.owners.map (i) -> i.get "id"
     @relationship = @model.relationship()
-    @$el.html JST["templates/applications/item"](application: @model)
+    @$el.html JST["v1/templates/applications/item"](application: @model)
     @$el.attr "id", "application_" + @model.id
     @$(".application-link").attr "href", @applicationUrl()
 

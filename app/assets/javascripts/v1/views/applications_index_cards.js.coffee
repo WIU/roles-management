@@ -6,7 +6,7 @@ DssRm.Views.ApplicationsIndexCards = Backbone.View.extend(
     "click #cards" : "deselectAll"
   
   initialize: (options) ->
-    @$el.html JST["templates/applications/cards"]()
+    @$el.html JST["v1/templates/applications/cards"]()
     
     DssRm.applications.on "add", ((o) =>
       @$('#cards').append(@renderCard(o).el)

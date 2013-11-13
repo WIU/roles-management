@@ -7,7 +7,7 @@ DssRm.Views.EventLogDialog = Backbone.View.extend(
     "show"  : "fetchEntries"
 
   initialize: (options) ->
-    @$el.html JST["templates/application/event_log_dialog"]()
+    @$el.html JST["v1/templates/application/event_log_dialog"]()
     @entries = options.entries
 
   render: ->

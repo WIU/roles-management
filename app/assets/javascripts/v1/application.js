@@ -10,11 +10,11 @@
 //= require bootbox
 //= require bootstrap-modal-alert
 //= require jquery.tokeninput-modified
-//= require routes
+//= require ./routes
 //= require jquery.filedrop
 //= require jquery.timeago
 //
-//= require dss-rm
+//= require ./dss-rm
 //
 //= require_tree ./helpers
 //= require_tree ./models

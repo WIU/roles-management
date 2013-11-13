@@ -13,7 +13,7 @@ class DssRm.Views.PersonShow extends Backbone.View
     "click #add_role_assignment_application_button" : "addRoleAssignmentApplication"
 
   initialize: ->
-    @$el.html JST["templates/entities/show_person"](model: @model)
+    @$el.html JST["v1/templates/entities/show_person"](model: @model)
     @listenTo @model, "sync", @resetRolesTab
     @listenTo @model, "sync", @render
     @readonly = @model.isReadOnly()
