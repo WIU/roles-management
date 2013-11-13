@@ -1,11 +1,11 @@
 /*
 *= require bootstrap
-*= require bootstrap-overrides
+*= require ./bootstrap-overrides
 *= require token-input-facebook
-*= require token-input-overrides
-*= require applications
-*= require groups
-*= require sidebar
+*= require ./token-input-overrides
+*= require ./applications
+*= require ./groups
+*= require ./sidebar
 *= require_self
 */
 

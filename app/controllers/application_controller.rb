@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   include SafeFilename
   helper :all
   protect_from_forgery
-  TEMPLATE_VERSION = 1
 
   before_filter :authenticate
 
