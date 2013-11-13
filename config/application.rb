@@ -63,7 +63,9 @@ module DSSRM
       config.assets.paths << Rails.root.join("vendor", "assets", "v1", "stylesheets")
       config.assets.paths << Rails.root.join("vendor", "assets", "v1", "images")
     elsif config.template_version == '2'
-      
+      config.assets.paths << Rails.root.join("vendor", "assets", "v2", "javascripts")
+      config.assets.paths << Rails.root.join("vendor", "assets", "v2", "stylesheets")
+      config.assets.paths << Rails.root.join("vendor", "assets", "v2", "images")
     end
   end
 end

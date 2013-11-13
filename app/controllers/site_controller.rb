@@ -5,6 +5,7 @@ class SiteController < ApplicationController
   caches_action :welcome
 
   def welcome
+    render "v#{Rails.application.config.template_version}/site/welcome", :layout => "v#{Rails.application.config.template_version}/layouts/site"
   end
 
   # Check for HTTP 200 at /status.json for application issues
@@ -17,7 +18,7 @@ class SiteController < ApplicationController
 
   def access_denied
     logger.info "#{request.remote_ip}: Loaded access denied page."
-    render :status => :forbidden
+    render "v#{Rails.application.config.template_version}/site/access_denied", :layout => "v#{Rails.application.config.template_version}/layouts/site", :status => :forbidden
   end
 
   def logout
