@@ -56,16 +56,10 @@ module DSSRM
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.4'
 
-    config.template_version = '1'
+    config.template_version = '2'
 
-    if config.template_version == '1'
-      config.assets.paths << Rails.root.join("vendor", "assets", "v1", "javascripts")
-      config.assets.paths << Rails.root.join("vendor", "assets", "v1", "stylesheets")
-      config.assets.paths << Rails.root.join("vendor", "assets", "v1", "images")
-    elsif config.template_version == '2'
-      config.assets.paths << Rails.root.join("vendor", "assets", "v2", "javascripts")
-      config.assets.paths << Rails.root.join("vendor", "assets", "v2", "stylesheets")
-      config.assets.paths << Rails.root.join("vendor", "assets", "v2", "images")
-    end
+    config.assets.paths << Rails.root.join("vendor", "assets", "v#{config.template_version}", "javascripts")
+    config.assets.paths << Rails.root.join("vendor", "assets", "v#{config.template_version}", "stylesheets")
+    config.assets.paths << Rails.root.join("vendor", "assets", "v#{config.template_version}", "images")
   end
 end
