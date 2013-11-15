@@ -9,7 +9,7 @@ class ApplicationsController < ApplicationController
     logger.info "#{current_user.log_identifier}@#{request.remote_ip}: Loaded application index (main page)."
     
     respond_with @applications do |format|
-      format.html { render "v#{Rails.application.config.template_version}/applications/index", :layout => 'v1/layouts/application' }
+      format.html { render "v#{Rails.application.config.template_version}/applications/index", :layout => "v#{Rails.application.config.template_version}/layouts/application" }
     end
   end
 

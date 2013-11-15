@@ -1,59 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-	<title>Roles Management</title>
+  <head>
+    <title>Roles Management</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Web fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300' rel='stylesheet' type='text/css'>
+    
+    <%= stylesheet_link_tag "v2/application" %>
+    <%= stylesheet_link_tag "v2/applications" %>
+  	<%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h1>Permissions</h1>
+          
+          <h2 style="font-weight: 500;">eVote</h2>
 
-  <%= stylesheet_link_tag "application" %>
-	<%= csrf_meta_tag %>
-</head>
-<body>
-
-  <% _has_role? :admin do %>
-  <script type="text/javascript">
-    window.application_last_updated = "<%= LAST_UPDATED %>";
-  </script>
-  <% end %>
-
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <%= link_to "Roles Management", applications_url, :class => "brand" %>
-        
-        <div class="nav-collapse collapse">
-          <ul class="nav pull-right">
-            <li class="dropdown">
-              <% _has_role? :admin do %>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrate <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <% unless session[:impersonation_id].nil? %>
-                  <li><a href="#unimpersonate">Unimpersonate</a></li>
-                <% else %>
-                  <li><a href="#impersonate">Impersonate…</a></li>
-                <% end %>
-                <li class="divider"></li>
-                <li><a href="#api-keys">API Keys…</a></li>
-                <li><a href="#whitelist">API Whitelist…</a></li>
-                <li class="divider"></li>
-                <li><a href="#event-log">Event Log…</a></li>
-                <li><a href="#queued-jobs">Queued Jobs…</a></li>
-                <li class="divider"></li>
-                <li><a href="#about">About…</a></li>
-              </ul>
-              <% end %>
-              <li><%= link_to "Log out", logout_url %></li>
-            </li>
+          <ul id="sortable" class="ui-sortable">
+              <li class="ui-state-default">Create Ballots</li>
+              <li class="ui-state-default ui-state-highlighted ui-state-selected">View Results</li>
+              <li class="ui-state-default">Vote</li>
           </ul>
-        </div><!-- /.nav-collapse -->
+
+          <h2 style="opacity: 0.4;">Portal</h2>
+
+          <ul id="sortable" class="ui-sortable">
+              <li class="ui-state-default ui-state-disabled">Access</li>
+          </ul>
+
+          <h2 style="opacity: 0.4;">Course Management</h2>
+
+          <ul id="sortable" class="ui-sortable">
+              <li class="ui-state-default ui-state-disabled">Import Data</li>
+              <li class="ui-state-default ui-state-disabled">Adjust Schedule</li>
+              <li class="ui-state-default ui-state-disabled">Root Access</li>
+              <li class="ui-state-default ui-state-disabled">Analyze Data</li>
+          </ul>
+
+        </div>
+        <div class="col-md-4">
+          <h1 style="opacity: 0.4;">Groups</h1>
+          
+          <h2>Assigned</h2>
+          
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">DSS IT Service Center</li>
+            <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">DSS IT Student Staff</li>
+          </ul>
+          
+          <h2 style="opacity: 0.4;">DSS IT</h2>
+          
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">DSS IT Service Center</li>
+            <li class="ui-state-default ui-state-disabled">DSS IT Student Staff</li>
+          </ul>
+          
+          <h2 style="opacity: 0.4;">Blue Cluster</h2>
+          
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">Economics Faculty</li>
+            <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Economics Staff</li>
+            <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Blue Cluster Staff</li>
+            <li class="ui-state-default ui-state-disabled">Blue Cluster Students</li>
+            <li class="ui-state-default ui-state-disabled">History Staff</li>
+            <li class="ui-state-default ui-state-disabled">History Faculty</li>
+          </ul>
+          
+          <h2 style="opacity: 0.4;">Center for Mind &amp; Brain</h2>
+          
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">CMB Staff</li>
+          </ul>
+          
+          <h2 style="opacity: 0.4;">Green Cluster</h2>
+          
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">Psychology Faculty</li>
+            <li class="ui-state-default ui-state-disabled">Psychology Staff</li>
+            <li class="ui-state-default ui-state-disabled">All Psychology People</li>
+          </ul>
+          
+          <h2 style="opacity: 0.4;">DSS HR</h2>
+          
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">DSS HR Service Center</li>
+          </ul>
+          
+        </div>
+        <div class="col-md-4">
+          <h1 style="opacity: 0.4;">People</h1>
+          
+          <h2>Assigned</h2>
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Dewight Kramer</li>
+            <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Obada Kadri</li>
+            <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Diane Mercedes Aguilar</li>
+            <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Brandon Vernon Baker</li>
+            <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Carol McMasters-Stone</li>
+          </ul>
+          
+          <h2 style="opacity: 0.4;">A-D</h2>
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">Lloyd Wheeler</li>
+            <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Dewight Kramer</li>
+            <li class="ui-state-default ui-state-disabled">Janine Carlson</li>
+            <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Obada Kadri</li>
+            <li class="ui-state-default ui-state-disabled">Christopher Thielen</li>
+          </ul>
+
+          <h2 style="opacity: 0.4;">E-G</h2>
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">Jeremy M Phillips</li>
+            <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Diane Mercedes Aguilar</li>
+            <li class="ui-state-default ui-state-disabled">Michael Richter Smith</li>
+            <li class="ui-state-default ui-state-disabled">Rachel Zimring Feldman</li>
+            <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Brandon Vernon Baker</li>
+            <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Carol McMasters-Stone</li>
+            <li class="ui-state-default ui-state-disabled">Christopher Brick</li>
+            <li class="ui-state-default ui-state-disabled">Scott A Dyer</li>
+          </ul>
+          
+          <h2 style="opacity: 0.4;">H-L</h2>
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">Josephine Cosca</li>
+            <li class="ui-state-default ui-state-disabled">Jeff Trask</li>
+            <li class="ui-state-default ui-state-disabled">Jarold Wong</li>
+            <li class="ui-state-default ui-state-disabled">Alvin Gilbert Block</li>
+            <li class="ui-state-default ui-state-disabled">Angus Chang</li>
+            <li class="ui-state-default ui-state-disabled">Jackie Teeple</li>
+          </ul>
+          
+          <h2 style="opacity: 0.4;">M-Q</h2>
+          <ul id="sortable" class="ui-sortable">
+            <li class="ui-state-default ui-state-disabled">Cat Huff</li>
+            <li class="ui-state-default ui-state-disabled">Stephanie Fallas</li>
+          </ul>
+
+        </div>
       </div>
-    </div><!-- /navbar-inner -->
-  </div><!-- /navbar -->
+    </div>
 
-  <div id="main-body" class="container-fluid"><%= yield %></div>
-
-  <%= javascript_include_tag "v1/application" %>
-  <%= yield :javascript %>
-  
-  <div id="get-support"><a href="https://sysaid.dss.ucdavis.edu/SubmitSR.jsp?formID=0&reRoute=1&isLogged=1&noframe=null&populateSR_id=0&pageID=1&subPageID=undefined&changes=1&right2left=false&autoDescriptionTemplate=N&problem_type=Websites+and+Web+Apps&subcategory=Error+or+Problem&title=Roles+Management+Bug+Report&desc=What+were+you+doing+when+the+error+occurred%3F%0D%0A%0D%0AIf+you+received+an+error+message%2C+what+was+the+exact+text%3F%0D%0A%0D%0AWhat+web+browser+and+version+were+you+using%3F" target="_blank"><button class="btn btn-danger"><i class="icon-comment icon-white" style="margin-right: 8px;"></i>Report a Problem</button></a></div>
-</body>
+    <%= javascript_include_tag "v2/application" %>
+    <%= yield :javascript %>
+  </body>
 </html>

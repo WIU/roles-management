@@ -58,8 +58,10 @@ module DSSRM
 
     config.template_version = '2'
 
-    config.assets.paths << Rails.root.join("vendor", "assets", "v#{config.template_version}", "javascripts")
-    config.assets.paths << Rails.root.join("vendor", "assets", "v#{config.template_version}", "stylesheets")
-    config.assets.paths << Rails.root.join("vendor", "assets", "v#{config.template_version}", "images")
+    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}")
+    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}", "fonts")
+    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}", "images")
+    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}", "javascripts")
+    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}", "stylesheets")
   end
 end
