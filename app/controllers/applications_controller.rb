@@ -8,7 +8,7 @@ class ApplicationsController < ApplicationController
   def index
     logger.info "#{current_user.log_identifier}@#{request.remote_ip}: Loaded application index (main page)."
     
-    respond_with @applications do |format|
+    respond_to do |format|
       format.html { render "v#{Rails.application.config.template_version}/applications/index", :layout => "v#{Rails.application.config.template_version}/layouts/application" }
     end
   end
@@ -92,13 +92,15 @@ class ApplicationsController < ApplicationController
   end
 
   def load_applications
-    manageable_applications = current_user.manageable_applications
+    if Rails.application.config.template_version == '1'
+      manageable_applications = current_user.manageable_applications
     
-    if params[:q]
-      apps = Application.arel_table
-      @applications = manageable_applications.where(apps[:name].matches("%#{params[:q]}%"))
-    else
-      @applications = manageable_applications
+      if params[:q]
+        apps = Application.arel_table
+        @applications = manageable_applications.where(apps[:name].matches("%#{params[:q]}%"))
+      else
+        @applications = manageable_applications
+      end
     end
   end
   
