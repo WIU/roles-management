@@ -67,4 +67,16 @@ class Api::V1::PeopleControllerTest < ActionController::TestCase
 
     assert_response :missing
   end
+  
+  test 'JSON index request should include certain attributes' do
+    grant_api_user_access
+  
+    get :index, :format => :json
+  
+    body = JSON.parse(response.body)[0]
+  
+    assert body.include?('id'), 'JSON response should include id field'
+    assert body.include?('name'), 'JSON response should include name field'
+    assert body.include?('loginid'), 'JSON response should include loginid field'
+  end
 end

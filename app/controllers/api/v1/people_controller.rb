@@ -3,6 +3,14 @@ module Api
     class PeopleController < ApplicationController
       before_filter :load_person, :only => :show
       filter_access_to :all, :attribute_check => true
+      filter_access_to :index, :attribute_check => true, :load_method => :load_people
+      respond_to :json
+
+      def index
+        logger.tagged('API') { logger.info "#{current_user.log_identifier}@#{request.remote_ip}: Loaded or searched people index." }
+        
+        render "api/v1/people/index"
+      end
 
       def show
         if @person and @person.status
@@ -22,6 +30,17 @@ module Api
       def load_person
         @person = Person.with_permissions_to(:read).find_by_loginid(params[:id])
         @person = Person.with_permissions_to(:read).find_by_id(params[:id]) unless @person
+      end
+      
+      def load_people
+        if params[:q]
+          people_table = Person.arel_table
+      
+          # Search login IDs in case of an entity-search but looking for person by login ID
+          @people = Person.with_permissions_to(:read).where(:status => true).where(people_table[:name].matches("%#{params[:q]}%").or(people_table[:loginid].matches("%#{params[:q]}%")).or(people_table[:first].matches("%#{params[:q]}%")).or(people_table[:last].matches("%#{params[:q]}%")))
+        else
+          @people = Person.with_permissions_to(:read).where(:status => true).all
+        end
       end
     end
   end
