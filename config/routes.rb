@@ -19,6 +19,8 @@ DSSRM::Application.routes.draw do
   get "people/search/:term" => "people#search", :as => :people_search
   post "people/import/:loginid" => "people#import", :as => :person_import
 
+  resources :role_assignments # used in v2
+
   resources :applications
   resources :entities
   resources :people
@@ -26,7 +28,7 @@ DSSRM::Application.routes.draw do
   resources :group_rules
   resources :ous
   resources :roles do
-    get "sync" # HTTP GET as we queue this request - we cannot return data immediately
+    get "sync"
   end
   resources :majors
   resources :titles

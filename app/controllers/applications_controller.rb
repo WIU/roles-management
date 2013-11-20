@@ -6,11 +6,7 @@ class ApplicationsController < ApplicationController
   respond_to :json
 
   def index
-    logger.info "#{current_user.log_identifier}@#{request.remote_ip}: Loaded application index (main page)."
-    
-    respond_to do |format|
-      format.html { render "v#{Rails.application.config.template_version}/applications/index", :layout => "v#{Rails.application.config.template_version}/layouts/application" }
-    end
+    logger.info "#{current_user.log_identifier}@#{request.remote_ip}: Loaded application index."
   end
 
   def show
@@ -92,16 +88,16 @@ class ApplicationsController < ApplicationController
   end
 
   def load_applications
-    if Rails.application.config.template_version == '1'
-      manageable_applications = current_user.manageable_applications
+    # manageable_applications = current_user.manageable_applications
+    #   
+    # if params[:q]
+    #   apps = Application.arel_table
+    #   @applications = manageable_applications.where(apps[:name].matches("%#{params[:q]}%"))
+    # else
+    #   @applications = manageable_applications
+    # end
     
-      if params[:q]
-        apps = Application.arel_table
-        @applications = manageable_applications.where(apps[:name].matches("%#{params[:q]}%"))
-      else
-        @applications = manageable_applications
-      end
-    end
+    @applications = []
   end
   
   def new_application_from_params

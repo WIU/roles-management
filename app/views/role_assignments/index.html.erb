@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Roles Management</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Web fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300' rel='stylesheet' type='text/css'>
+    
+    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "applications" %>
+  	<%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+    <%= yield :javascript %>
+  </body>
+</html>
+
+
+
+<%= content_for :javascript do -%>
+  <script type="text/javascript">
+    $(function () {
+      var div = $('<div></div>');
+      div.html($('#bootstrap').text());
+      var data = JSON.parse(div.text());
+
+      window.data = data;
+
+      DssRm.initialize(data);
+    });
+  </script>
+<% end %>

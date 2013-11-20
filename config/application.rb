@@ -54,14 +54,8 @@ module DSSRM
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.4'
-
-    config.template_version = '2'
-
-    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}")
-    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}", "fonts")
-    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}", "images")
-    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}", "javascripts")
-    config.assets.paths << Rails.root.join("vendor", "assets-v#{config.template_version}", "stylesheets")
+    config.assets.version = '1.5'
+    
+    config.assets.paths << Rails.root.join("vendor", "assets")
   end
 end

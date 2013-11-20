@@ -9,11 +9,9 @@ group :assets do
 end
 
 group :production do
-  gem 'syslogger', :git => 'https://github.com/cthielen/syslogger.git'
+  # gem 'syslogger', :git => 'https://github.com/cthielen/syslogger.git'
   gem 'pg'
-  gem 'dalli'
-  # gem 'unicorn'
-  # gem 'unicorn-worker-killer'
+  gem 'dalli' # memcache client
   gem 'exception_notification'
 end
 
@@ -25,12 +23,10 @@ group :development do
 end
 
 group :development, :test do
-  gem 'jasminerice', :git => 'git://github.com/bradphelan/jasminerice.git'
-  gem 'guard-jasmine'
   gem 'sqlite3'
 end
 
-gem "rubysl", "~> 2.0", :platform => :rbx
+# gem "rubysl", "~> 2.0", :platform => :rbx
 
 gem 'capistrano', '< 3.0.0'
 
@@ -52,7 +48,7 @@ gem 'js-routes', :git => 'git://github.com/railsware/js-routes.git'
 gem 'rabl'
 gem 'oj'
 
-gem 'jbuilder'
+#gem 'jbuilder'
 
 # For scheduled tasks
 gem 'whenever', :require => false
