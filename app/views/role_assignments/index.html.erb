@@ -14,28 +14,9 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <%= yield %>
-      </div>
+      <div class="row" ng-app="roles-management" ng-view></div>
     </div>
 
     <%= javascript_include_tag "application" %>
-    <%= yield :javascript %>
   </body>
 </html>
-
-
-
-<%= content_for :javascript do -%>
-  <script type="text/javascript">
-    $(function () {
-      var div = $('<div></div>');
-      div.html($('#bootstrap').text());
-      var data = JSON.parse(div.text());
-
-      window.data = data;
-
-      DssRm.initialize(data);
-    });
-  </script>
-<% end %>
