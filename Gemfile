@@ -48,7 +48,7 @@ gem 'js-routes', :git => 'git://github.com/railsware/js-routes.git'
 gem 'rabl'
 gem 'oj'
 
-#gem 'jbuilder'
+gem 'jbuilder'
 
 # For scheduled tasks
 gem 'whenever', :require => false

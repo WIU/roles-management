@@ -11,5 +11,3 @@ window.RolesManagement = angular.module("roles-management", ["ngRoute"])
 
 RolesManagement.config rolesManagementRouter
 RolesManagement.config includeCSRF
-
-console.log 'here at bottom of router'

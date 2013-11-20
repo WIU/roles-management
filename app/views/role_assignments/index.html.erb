@@ -12,9 +12,9 @@
     <%= stylesheet_link_tag "applications" %>
   	<%= csrf_meta_tag %>
   </head>
-  <body>
-    <div class="container">
-      <div class="row" ng-app="roles-management" ng-view></div>
+  <body ng-app="roles-management">
+    <div class="container" ng-controller="RoleAssignmentsCtrl">
+      <div class="row" ng-view></div>
     </div>
 
     <%= javascript_include_tag "application" %>
