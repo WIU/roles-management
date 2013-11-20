@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <h1>Permissions</h1>
   
-  <span ng-repeat="application in applications">
+  <span ng-repeat="application in applications | orderBy:'name'">
     <h2 style="font-weight: 300;">{{ application.name }}</h2>
     
     <ul id="sortable" class="ui-sortable">
@@ -21,7 +21,7 @@
   <h1>Groups</h1>
   
   <ul id="sortable" class="ui-sortable">
-  <span ng-repeat="group in groups">
+  <span ng-repeat="group in groups | orderBy:'name'">
     <li class="ui-state-default">{{ group.name }}</li>
   </span>
   </ul>
@@ -75,11 +75,15 @@
 <div class="col-md-4">
   <h1>People</h1>
   
-  <ul id="sortable" class="ui-sortable">
-  <span ng-repeat="person in people | orderBy:'name'">
-    <li class="ui-state-default">{{ person.name }}</li>
+  <span ng-repeat="peopleGroup in peopleGroups">
+    <h2>{{ peopleGroup.label }}</h2>
+
+    <ul id="sortable" class="ui-sortable">
+      <span ng-repeat="person in peopleGroup.slice | orderBy:'name'">
+        <li class="ui-state-default">{{ person.name }}</li>
+      </span>
+    </ul>
   </span>
-  </ul>
   
   <!--<h2>Assigned</h2>
   <ul id="sortable" class="ui-sortable">
@@ -90,40 +94,12 @@
     <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Carol McMasters-Stone</li>
   </ul>-->
   
-  <h2 style="opacity: 0.4;">A-D</h2>
+  <!--<h2 style="opacity: 0.4;">A-D</h2>
   <ul id="sortable" class="ui-sortable">
     <li class="ui-state-default ui-state-disabled">Lloyd Wheeler</li>
     <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Dewight Kramer</li>
     <li class="ui-state-default ui-state-disabled">Janine Carlson</li>
     <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Obada Kadri</li>
     <li class="ui-state-default ui-state-disabled">Christopher Thielen</li>
-  </ul>
-
-  <h2 style="opacity: 0.4;">E-G</h2>
-  <ul id="sortable" class="ui-sortable">
-    <li class="ui-state-default ui-state-disabled">Jeremy M Phillips</li>
-    <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Diane Mercedes Aguilar</li>
-    <li class="ui-state-default ui-state-disabled">Michael Richter Smith</li>
-    <li class="ui-state-default ui-state-disabled">Rachel Zimring Feldman</li>
-    <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Brandon Vernon Baker</li>
-    <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Carol McMasters-Stone</li>
-    <li class="ui-state-default ui-state-disabled">Christopher Brick</li>
-    <li class="ui-state-default ui-state-disabled">Scott A Dyer</li>
-  </ul>
-  
-  <h2 style="opacity: 0.4;">H-L</h2>
-  <ul id="sortable" class="ui-sortable">
-    <li class="ui-state-default ui-state-disabled">Josephine Cosca</li>
-    <li class="ui-state-default ui-state-disabled">Jeff Trask</li>
-    <li class="ui-state-default ui-state-disabled">Jarold Wong</li>
-    <li class="ui-state-default ui-state-disabled">Alvin Gilbert Block</li>
-    <li class="ui-state-default ui-state-disabled">Angus Chang</li>
-    <li class="ui-state-default ui-state-disabled">Jackie Teeple</li>
-  </ul>
-  
-  <h2 style="opacity: 0.4;">M-Q</h2>
-  <ul id="sortable" class="ui-sortable">
-    <li class="ui-state-default ui-state-disabled">Cat Huff</li>
-    <li class="ui-state-default ui-state-disabled">Stephanie Fallas</li>
-  </ul>
+  </ul>-->
 </div>
