@@ -6,7 +6,7 @@ window.RolesManagement =
   
   initialize: (data) ->
     @assignments = new Backbone.Collection()
-    @roles = new Backbone.Collection()
+    @roles = new RolesManagement.Collections.Roles()
     @groups = new Backbone.Collection()
     @people = new Backbone.Collection()
     @applications = new Backbone.Collection()

@@ -5,5 +5,6 @@
 
 //= require roles-management
 //= require_tree ./templates
+//= require_tree ./models
 //= require_tree ./routers
 //= require_tree ./views

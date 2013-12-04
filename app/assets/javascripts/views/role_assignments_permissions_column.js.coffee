@@ -6,11 +6,21 @@ RolesManagement.Views.RoleAssignmentsPermissionsColumn = Backbone.View.extend
   initialize: (options) ->
     @$el.html JST["templates/role_assignments/permissions_column"]()
 
-    # # Set up "peopleGroups" (people sliced into groups based on names) for the view
-    # @peopleGroups = new Backbone.Collection() # stores RolesManagement.people sliced into labeled groups for the view
-    # @listenTo RolesManagement.people, 'reset', => @peopleGroups.reset sliceWithLabels(RolesManagement.people)
-    # 
-    # @listenTo @peopleGroups, 'reset', @render
+    @listenTo RolesManagement.applications, 'reset', @render
   
   render: ->
+    console.debug 'Rendering permissions column...'
+    
+    @$('#permissions').empty()
+    
+    permissionsEl = ''
+    RolesManagement.applications.each (application) =>
+      permissionsEl += '<h2 style="font-weight: 300;">' + application.get('name') + '</h2><ul id="sortable" class="ui-sortable">'
+      
+      _.each RolesManagement.roles.findByApplicationId(application.get('id')), (role) =>
+        permissionsEl += '<li class="ui-state-default">' + role.get('name') + '</li>'
+        
+      permissionsEl += '</ul>'
+    
+    @$('#permissions').append permissionsEl
     @

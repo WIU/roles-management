@@ -13,9 +13,11 @@ RolesManagement.Views.RoleAssignmentsPeopleColumn = Backbone.View.extend
     @listenTo @peopleGroups, 'reset', @render
   
   render: ->
+    console.debug 'Rendering people column ...'
+    
+    @$('#peopleGroups').empty()
+    
     @peopleGroups.each (peopleGroup) =>
-      console.log peopleGroup
-      
       pgEl = '<h2>' + peopleGroup.get('label') + '</h2><ul id="sortable" class="ui-sortable">'
 
       _.each peopleGroup.get('slice'), (slice) =>
