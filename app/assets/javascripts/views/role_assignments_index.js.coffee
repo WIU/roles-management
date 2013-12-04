@@ -1,15 +1,18 @@
 RolesManagement.Views.RoleAssignmentsIndex = Backbone.View.extend
   tagName: "div"
-  id: "applications"
-  className: "row-fluid"
+  id: "role_assignments_index"
+  className: "row"
   
   initialize: (options) ->
-    # @$el.html JST["v1/templates/applications/index"]()
-    # 
-    # @cards = new RolesManagement.Views.ApplicationsIndexCards()
-    # @sidebar = new RolesManagement.Views.ApplicationsIndexSidebar()
+    @$el.html JST["templates/role_assignments/index"]()
+    
+    @peopleColumn = new RolesManagement.Views.RoleAssignmentsPeopleColumn()
+    @groupsColumn = new RolesManagement.Views.RoleAssignmentsGroupsColumn()
+    @permissionsColumn = new RolesManagement.Views.RoleAssignmentsPermissionsColumn()
   
   render: ->
-    # @$('#cards-area').replaceWith @cards.render().el
-    # @$('#sidebar-area').replaceWith @sidebar.render().el
+    # Subviews render themselves on-demand (via event listening)
+    @$('#people').replaceWith @peopleColumn.el
+    @$('#groups').replaceWith @groupsColumn.el
+    @$('#permissions').replaceWith @permissionsColumn.el
     @

@@ -1,0 +1,17 @@
+<h1>Permissions</h1>
+
+<span ng-repeat="application in applications | orderBy:'name'">
+  <h2 style="font-weight: 300;">{{ application.name }}</h2>
+  
+  <ul id="sortable" class="ui-sortable">
+      <li class="ui-state-default" ng-repeat="role in roles | filter:({application_id:application.id})">{{ role.name }}</li>
+  </ul>
+</span>
+
+<!--<h2 style="font-weight: 500;">eVote</h2>
+
+<ul id="sortable" class="ui-sortable">
+    <li class="ui-state-default">Create Ballots</li>
+    <li class="ui-state-default ui-state-highlighted ui-state-selected">View Results</li>
+    <li class="ui-state-default">Vote</li>
+</ul>-->

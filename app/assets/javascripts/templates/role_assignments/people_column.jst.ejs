@@ -1,0 +1,29 @@
+<h1>People</h1>
+
+<span ng-repeat="peopleGroup in peopleGroups">
+  <h2>{{ peopleGroup.label }}</h2>
+
+  <ul id="sortable" class="ui-sortable">
+    <span ng-repeat="person in peopleGroup.slice | orderBy:'name'">
+      <li class="ui-state-default">{{ person.name }}</li>
+    </span>
+  </ul>
+</span>
+
+<!--<h2>Assigned</h2>
+<ul id="sortable" class="ui-sortable">
+  <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Dewight Kramer</li>
+  <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Obada Kadri</li>
+  <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Diane Mercedes Aguilar</li>
+  <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Brandon Vernon Baker</li>
+  <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Carol McMasters-Stone</li>
+</ul>-->
+
+<!--<h2 style="opacity: 0.4;">A-D</h2>
+<ul id="sortable" class="ui-sortable">
+  <li class="ui-state-default ui-state-disabled">Lloyd Wheeler</li>
+  <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Dewight Kramer</li>
+  <li class="ui-state-default ui-state-disabled">Janine Carlson</li>
+  <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Obada Kadri</li>
+  <li class="ui-state-default ui-state-disabled">Christopher Thielen</li>
+</ul>-->

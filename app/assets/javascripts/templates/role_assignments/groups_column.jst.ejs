@@ -1,0 +1,52 @@
+<h1>Groups</h1>
+
+<ul id="sortable" class="ui-sortable">
+<span ng-repeat="group in groups | orderBy:'name'">
+  <li class="ui-state-default">{{ group.name }}</li>
+</span>
+</ul>
+
+<!--<h2>Assigned</h2>
+
+<ul id="sortable" class="ui-sortable">
+  <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">DSS IT Service Center</li>
+  <li class="ui-state-default ui-state-highlighted" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">DSS IT Student Staff</li>
+</ul>-->
+
+<h2 style="opacity: 0.4;">DSS IT</h2>
+
+<ul id="sortable" class="ui-sortable">
+  <li class="ui-state-default ui-state-disabled">DSS IT Service Center</li>
+  <li class="ui-state-default ui-state-disabled">DSS IT Student Staff</li>
+</ul>
+
+<h2 style="opacity: 0.4;">Blue Cluster</h2>
+
+<ul id="sortable" class="ui-sortable">
+  <li class="ui-state-default ui-state-disabled">Economics Faculty</li>
+  <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Economics Staff</li>
+  <li class="ui-state-default ui-state-highlighted ui-state-disabled" style="background: linear-gradient(to bottom, rgb(125, 125, 125) 0%, rgb(105, 105, 105) 100%);">Blue Cluster Staff</li>
+  <li class="ui-state-default ui-state-disabled">Blue Cluster Students</li>
+  <li class="ui-state-default ui-state-disabled">History Staff</li>
+  <li class="ui-state-default ui-state-disabled">History Faculty</li>
+</ul>
+
+<h2 style="opacity: 0.4;">Center for Mind &amp; Brain</h2>
+
+<ul id="sortable" class="ui-sortable">
+  <li class="ui-state-default ui-state-disabled">CMB Staff</li>
+</ul>
+
+<h2 style="opacity: 0.4;">Green Cluster</h2>
+
+<ul id="sortable" class="ui-sortable">
+  <li class="ui-state-default ui-state-disabled">Psychology Faculty</li>
+  <li class="ui-state-default ui-state-disabled">Psychology Staff</li>
+  <li class="ui-state-default ui-state-disabled">All Psychology People</li>
+</ul>
+
+<h2 style="opacity: 0.4;">DSS HR</h2>
+
+<ul id="sortable" class="ui-sortable">
+  <li class="ui-state-default ui-state-disabled">DSS HR Service Center</li>
+</ul>
