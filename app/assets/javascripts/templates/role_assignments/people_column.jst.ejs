@@ -1,14 +1,6 @@
 <h1>People</h1>
 
-<span ng-repeat="peopleGroup in peopleGroups">
-  <h2>{{ peopleGroup.label }}</h2>
-
-  <ul id="sortable" class="ui-sortable">
-    <span ng-repeat="person in peopleGroup.slice | orderBy:'name'">
-      <li class="ui-state-default">{{ person.name }}</li>
-    </span>
-  </ul>
-</span>
+<span id="peopleGroups"></span>
 
 <!--<h2>Assigned</h2>
 <ul id="sortable" class="ui-sortable">

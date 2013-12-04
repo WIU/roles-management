@@ -11,13 +11,7 @@ window.RolesManagement =
     @people = new Backbone.Collection()
     @applications = new Backbone.Collection()
     
-    #@current_user = new RolesManagement.Models.Entity data.current_user
-    #@current_user.set 'admin', data.current_user_admin
-    
-    # Create a view state to be shared amongst all views
-    #@view_state = new RolesManagement.Models.ViewState()
-    
-    @loadAssignments()
+    @loadAssignments() # loads the main data displayed in RolesManagement
     
     @router = new RolesManagement.Routers.Applications()
     
@@ -26,14 +20,14 @@ window.RolesManagement =
       Backbone.history.started = true
   
   loadAssignments: ->
-    $.get( "/role_assignments.json", (assignments) =>
+    $.get( "/role_assignments.json", (role_assignments) =>
       assignments = []
       roles = []
       applications = []
       groups = []
       people = []
     
-      _.each assignments, (assignment) =>
+      _.each role_assignments, (assignment) =>
         assignments.push { id: assignment.id, entity_id: assignment.entity.id, role_id: assignment.role.id, parent_id: assignment.parent_id }
         roles.push { id: assignment.role.id, name: assignment.role.name, application_id: assignment.application.id }
         applications.push { id: assignment.application.id, name: assignment.application.name }
@@ -51,20 +45,3 @@ window.RolesManagement =
     .fail( () =>
       console.log( "Unable to load role assignments JSON!" )
     )
-    
-    # Enable tooltips globally
-    # $("body").tooltip
-    #   selector: '[rel=tooltip]'
-    
-    # Prevent body scrolling when modal is open
-  #   $("body").on "shown", (e) ->
-  #     class_attr = $(e.target).attr('class')
-  #     if class_attr and class_attr.indexOf("modal") != -1
-  #       $("body").css('overflow', 'hidden')
-  #   $("body").on "hidden", (e) ->
-  #     class_attr = $(e.target).attr('class')
-  #     if class_attr and class_attr.indexOf("modal") != -1
-  #       $("body").css('overflow', 'visible')
-  # 
-  # admin_logged_in: ->
-  #   RolesManagement.current_user.get 'admin'
