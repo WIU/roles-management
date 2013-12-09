@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/railsware/js-routes.git
-  revision: 05ae814390550021812dc6707c61746c398af15a
+  revision: cd85f8c7aa216c3cff3c4c33c1864b4c43af0078
   specs:
     js-routes (0.9.6)
       rails (>= 3.2)
@@ -122,7 +122,7 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    oj (2.3.0)
+    oj (2.4.0)
     os (0.9.6)
     paperclip (3.5.2)
       activemodel (>= 3.0.0)
@@ -131,7 +131,7 @@ GEM
       mime-types
     pg (0.17.0)
     polyglot (0.3.3)
-    rabl (0.9.2)
+    rabl (0.9.3)
       activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
