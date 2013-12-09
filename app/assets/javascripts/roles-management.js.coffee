@@ -4,7 +4,7 @@ window.RolesManagement =
   Views: {}
   Routers: {}
   
-  initialize: (data) ->
+  initialize: ->
     @assignments = new Backbone.Collection()
     @roles = new RolesManagement.Collections.Roles()
     @groups = new Backbone.Collection()
