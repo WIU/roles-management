@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106040101) do
+ActiveRecord::Schema.define(:version => 20131205230008) do
 
   create_table "affiliation_assignments", :force => true do |t|
     t.integer  "affiliation_id"
@@ -138,11 +138,13 @@ ActiveRecord::Schema.define(:version => 20131106040101) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.datetime "logged_in_at"
+    t.integer  "ou_id"
   end
 
   add_index "entities", ["code"], :name => "index_entities_on_code"
   add_index "entities", ["loginid"], :name => "index_entities_on_loginid"
   add_index "entities", ["name"], :name => "index_entities_on_name"
+  add_index "entities", ["ou_id"], :name => "index_entities_on_ou_id"
 
   create_table "group_memberships", :force => true do |t|
     t.integer "group_id"
