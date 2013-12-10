@@ -6,11 +6,21 @@ RolesManagement.Views.RoleAssignmentsGroupsColumn = Backbone.View.extend
   initialize: (options) ->
     @$el.html JST["templates/role_assignments/groups_column"]()
 
-    # # Set up "peopleGroups" (people sliced into groups based on names) for the view
-    # @peopleGroups = new Backbone.Collection() # stores RolesManagement.people sliced into labeled groups for the view
-    # @listenTo RolesManagement.people, 'reset', => @peopleGroups.reset sliceWithLabels(RolesManagement.people)
-    # 
-    # @listenTo @peopleGroups, 'reset', @render
+    @listenTo RolesManagement.groups, 'reset', @render
   
   render: ->
+    console.debug 'Rendering groups column...'
+    
+    @$('#groups').empty()
+    
+    groupsEl = ''
+    RolesManagement.groups.each (group) =>
+      groupsEl += '<h2 style="font-weight: 300;">' + group.get('name') + '</h2><ul id="sortable" class="ui-sortable">'
+      
+      RolesManagement.groups.each (group) =>
+        groupsEl += '<li class="ui-state-default">' + group.get('name') + '</li>'
+        
+      groupsEl += '</ul>'
+    
+    @$('#groups').append groupsEl
     @
