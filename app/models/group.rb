@@ -8,12 +8,8 @@ class Group < Entity
 
   has_many :memberships, :class_name => "GroupMembership", :dependent => :destroy
   has_many :members, :through => :memberships, :source => :entity
-  has_many :role_assignments, :foreign_key => "entity_id", :dependent => :destroy
-  has_many :roles, :through => :role_assignments, :dependent => :destroy
   has_many :group_ownerships, :dependent => :destroy
   has_many :owners, :through => :group_ownerships, :source => "entity", :dependent => :destroy
-  has_many :application_ownerships, :foreign_key => "entity_id", :dependent => :destroy
-  has_many :application_operatorships, :foreign_key => "entity_id", :dependent => :destroy
   has_many :group_operatorships, :dependent => :destroy
   has_many :operators, :through => :group_operatorships, :source => "entity", :dependent => :destroy
   has_many :rules, :foreign_key => 'group_id', :class_name => "GroupRule", :dependent => :destroy
