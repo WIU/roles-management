@@ -6,6 +6,8 @@ json.cache! ['v1', @cache_key] do
       json.name assignment.entity.name
       json.type assignment.entity.type
       json.status assignment.entity.status
+      json.ou_id assignment.entity.ou_id
+      json.ou_name assignment.entity.ou ? assignment.entity.ou.name : nil
     end
     json.role do
       json.id assignment.role.id

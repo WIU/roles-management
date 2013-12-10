@@ -7,4 +7,3 @@ RolesManagement.Collections.Roles = Backbone.Collection.extend
   findByApplicationId: (id) ->
     @filter (role) =>
       role.get('application_id') == id
-
