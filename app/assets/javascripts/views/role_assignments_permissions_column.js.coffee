@@ -17,7 +17,7 @@ RolesManagement.Views.RoleAssignmentsPermissionsColumn = Backbone.View.extend
     RolesManagement.applications.each (application) =>
       permissionsEl += '<h2 style="font-weight: 300;">' + application.get('name') + '</h2><ul id="sortable" class="ui-sortable">'
       
-      _.each RolesManagement.roles.findByApplicationId(application.get('id')), (role) =>
+      _.each RolesManagement.roles.findByApplicationId(application.id), (role) =>
         permissionsEl += '<li class="ui-state-default">' + role.get('name') + '</li>'
         
       permissionsEl += '</ul>'
