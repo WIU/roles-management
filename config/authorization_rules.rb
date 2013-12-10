@@ -18,6 +18,7 @@ authorization do
     has_permission_on :affiliations, :to => :manage
     has_permission_on :majors, :to => :manage
     has_permission_on :titles, :to => :manage
+    has_permission_on :ous, :to => :manage
     
     # For API keys
     has_permission_on :admin_api_key_users, :to => :manage
@@ -51,6 +52,7 @@ authorization do
     has_permission_on :group_rules, :to => :manage
     has_permission_on :people, :to => :manage
     has_permission_on :entities, :to => :manage
+    has_permission_on :ous, :to => :read
     
     includes :api_reader
   end
@@ -162,6 +164,9 @@ authorization do
     
     # Allow reading of any group
     has_permission_on :groups, :to => [:read, :show]
+    
+    # Allow reading of any OU
+    has_permission_on :ous, :to => [:read, :show]
     
     # Allow searching/importing of people
     has_permission_on :people, :to => [:search, :import]
