@@ -36,7 +36,7 @@ window.RolesManagement =
         applications.push { id: assignment.application.id, name: assignment.application.name }
         if assignment.entity.type == 'Group'
           groups.push { id: assignment.entity.id, name: assignment.entity.name, ou_id: assignment.entity.ou_id }
-          ous.push { id: assignment.entity.ou_id, name: assignment.entity.ou_name }
+          ous.push { id: assignment.entity.ou_id, name: assignment.entity.ou_name } if assignment.entity.ou_id
         else
           people.push { id: assignment.entity.id, name: assignment.entity.name } if assignment.entity.status
   
