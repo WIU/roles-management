@@ -1,7 +1,5 @@
-RolesManagement.Views.RoleAssignmentsPermissionsColumn = Backbone.View.extend
-  tagName: "div"
+RolesManagement.Views.RoleAssignmentsPermissionsColumn = RolesManagement.Views.RoleAssignmentsColumn.extend
   id: "permissions"
-  className: "col-md-4"
   
   initialize: (options) ->
     @$el.html JST["templates/role_assignments/permissions_column"]()
@@ -18,7 +16,7 @@ RolesManagement.Views.RoleAssignmentsPermissionsColumn = Backbone.View.extend
       permissionsEl += '<h2 style="font-weight: 300;">' + application.get('name') + '</h2><ul id="sortable" class="ui-sortable">'
       
       _.each RolesManagement.roles.findByApplicationId(application.id), (role) =>
-        permissionsEl += '<li class="ui-state-default">' + role.get('name') + '</li>'
+        permissionsEl += '<li class="ui-state-default" data-row-uid="' + role.cid + '">' + role.get('name') + '</li>'
         
       permissionsEl += '</ul>'
     

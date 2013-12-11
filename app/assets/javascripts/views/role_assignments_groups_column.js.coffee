@@ -1,9 +1,5 @@
-RolesManagement.Views.RoleAssignmentsGroupsColumn = Backbone.View.extend
-  tagName: "div"
+RolesManagement.Views.RoleAssignmentsGroupsColumn = RolesManagement.Views.RoleAssignmentsColumn.extend
   id: "groups"
-  className: "col-md-4"
-  events:
-    'click ul#sortable>li' : 'groupSelected'
   
   initialize: (options) ->
     @$el.html JST["templates/role_assignments/groups_column"]()
@@ -21,7 +17,7 @@ RolesManagement.Views.RoleAssignmentsGroupsColumn = Backbone.View.extend
       groupsEl += '<h2 style="font-weight: 300;">' + ou.get('name') + '</h2><ul id="sortable" class="ui-sortable">'
       
       _.each RolesManagement.groups.findByOuId(ou.id), (group) =>
-        groupsEl += '<li class="ui-state-default" data-group-id="' + group.id + '">' + group.get('name') + '</li>'
+        groupsEl += '<li class="ui-state-default" data-row-uid="' + group.cid + '">' + group.get('name') + '</li>'
         
       groupsEl += '</ul>'
     
@@ -37,8 +33,3 @@ RolesManagement.Views.RoleAssignmentsGroupsColumn = Backbone.View.extend
     
     @$('#groups').append groupsEl
     @
-
-  groupSelected: (e) ->
-    group_id = $(e.target).data('group-id')
-    console.debug "Group #{group_id} was selected"
-    

@@ -1,7 +1,5 @@
-RolesManagement.Views.RoleAssignmentsPeopleColumn = Backbone.View.extend
-  tagName: "div"
+RolesManagement.Views.RoleAssignmentsPeopleColumn = RolesManagement.Views.RoleAssignmentsColumn.extend
   id: "people"
-  className: "col-md-4"
   
   initialize: (options) ->
     @$el.html JST["templates/role_assignments/people_column"]()
@@ -21,7 +19,7 @@ RolesManagement.Views.RoleAssignmentsPeopleColumn = Backbone.View.extend
       pgEl = '<h2>' + peopleGroup.get('label') + '</h2><ul id="sortable" class="ui-sortable">'
 
       _.each peopleGroup.get('slice'), (slice) =>
-        pgEl += '<li class="ui-state-default">' + slice.get('name') + '</li>'
+        pgEl += '<li class="ui-state-default" data-row-uid="' + slice.cid + '">' + slice.get('name') + '</li>'
       
       pgEl += '</ul>'
       
