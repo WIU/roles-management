@@ -1,8 +1,8 @@
-RolesManagement.Views.RoleAssignmentsColumn = Backbone.View.extend
-  tagName: "div"
-  className: "col-md-4"
+RolesManagement.Views.RoleAssignmentsRow = Backbone.View.extend
+  tagName: "li"
+  className: "ui-state-default"
   events:
-    'click ul#sortable>li' : 'rowSelected'
+    'click' : 'rowSelected'
   
   initialize: (options) ->
   
