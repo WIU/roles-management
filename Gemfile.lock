@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/railsware/js-routes.git
-  revision: be87e50ee6b3cb4376607b94294a75fc5d4f1fe0
+  revision: 64519b8fa3b77239e185227f824faa51ec06d754
   specs:
     js-routes (0.9.6)
       rails (>= 3.2)
