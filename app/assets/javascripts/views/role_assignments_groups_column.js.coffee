@@ -33,3 +33,7 @@ RolesManagement.Views.RoleAssignmentsGroupsColumn = RolesManagement.Views.RoleAs
     
     @$('#groups').append groupsEl
     @
+  
+  handleNewEntry: ->
+    console.log 'groups column specific handleNewEntry'
+    
