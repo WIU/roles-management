@@ -86,12 +86,16 @@ module Authentication
     }
 
     logger.debug "Passed over HTTP Auth."
-
-    # It's important we do this before checking session[:cas_user] as it
-    # sets that variable. Note that the way before_filters work, this call
-    # will render or redirect but this function will still finish before
-    # the redirect is actually made.
-    CASClient::Frameworks::Rails::Filter.filter(self)
+    
+    if defined?(CAS_FAKE_USER) and not CAS_FAKE_USER.blank?
+      session[:cas_user] = CAS_FAKE_USER
+    else
+      # It's important we do this before checking session[:cas_user] as it
+      # sets that variable. Note that the way before_filters work, this call
+      # will render or redirect but this function will still finish before
+      # the redirect is actually made.
+      CASClient::Frameworks::Rails::Filter.filter(self)
+    end
 
     if session[:cas_user]
       # CAS session exists. Valid user account?
