@@ -88,16 +88,14 @@ class ApplicationsController < ApplicationController
   end
 
   def load_applications
-    # manageable_applications = current_user.manageable_applications
-    #   
-    # if params[:q]
-    #   apps = Application.arel_table
-    #   @applications = manageable_applications.where(apps[:name].matches("%#{params[:q]}%"))
-    # else
-    #   @applications = manageable_applications
-    # end
-    
-    @applications = []
+    manageable_applications = current_user.manageable_applications
+      
+    if params[:q]
+      apps = Application.arel_table
+      @applications = manageable_applications.where(apps[:name].matches("%#{params[:q]}%"))
+    else
+      @applications = manageable_applications
+    end
   end
   
   def new_application_from_params
