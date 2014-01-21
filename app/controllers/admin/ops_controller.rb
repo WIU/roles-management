@@ -25,8 +25,16 @@ class Admin::OpsController < Admin::BaseController
   def ad_path_check
     require 'active_directory_wrapper'
 
+    if Rails.env.test?
+      puts "set to false"
+      exists = false
+    else
+      puts "querying AD"
+      exists = ActiveDirectoryWrapper.group_exists?(params[:path])
+    end
+
     respond_to do |format|
-      format.json { render :json => { exists: ActiveDirectoryWrapper.group_exists?(params[:path]) } }
+      format.json { render :json => { exists: exists } }
     end
   end
 end
