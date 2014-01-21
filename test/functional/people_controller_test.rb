@@ -34,8 +34,8 @@ class PeopleControllerTest < ActionController::TestCase
     end
   end
   
-  test "should update person" do
+  #test "should update person" do
     #put :update, id: @person, format: :json, person: { first: @person.first, last: @person.last, loginid: @person.loginid }
     #assert_response :success
-  end
+  #end
 end
