@@ -11,7 +11,7 @@ class ActiveSupport::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
   fixtures :all
-
+  
   # Gives test user 'casuser' the basic access role for RM
   def grant_test_user_basic_access
     without_access_control do
@@ -54,6 +54,7 @@ class ActiveSupport::TestCase
     request.env['REMOTE_ADDR'] = '1.2.3.4'
   end
   
+  # Set up HTTP headers to simulate API key-style access
   def grant_api_user_access
     request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(api_key_users(:apiuser).name, api_key_users(:apiuser).secret)
   end

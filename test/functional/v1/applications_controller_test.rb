@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Api::V1::ApplicationsControllerTest < ActionController::TestCase
   setup do
-    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(api_key_users(:apiuser).name, api_key_users(:apiuser).secret)
+    grant_api_user_access
   end
 
   test "JSON index request should include certain attributes" do
@@ -59,6 +59,16 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
         assert o["id"].to_i != disabledEntity.id, "JSON response should not include disabled entity"
       end
     end
+  end
+
+  test "JSON index request should be empty without admin access, ownerships, or operatorships" do
+    #grant_test_user_basic_access
+  
+    get :index, :format => :json
+  
+    applications = JSON.parse(response.body)
+    
+    assert applications.length == 0, "JSON response should not have any applications listed for this test, found #{applications.length}"
   end
   
   test "JSON show request should include certain attributes" do

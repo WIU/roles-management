@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Api::V1::PeopleControllerTest < ActionController::TestCase
   setup do
-    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(api_key_users(:apiuser).name, api_key_users(:apiuser).secret)
+    grant_api_user_access
   end
 
   # loginid required for: impersonate dialog, group rule "loginid is"

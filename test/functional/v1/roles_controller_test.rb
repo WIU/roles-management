@@ -3,7 +3,7 @@ require 'test_helper'
 # These tests are run using the fake CAS user 'casuser'
 class Api::V1::RolesControllerTest < ActionController::TestCase
   test "JSON show request should include certain attributes" do
-    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(api_key_users(:apiuser).name, api_key_users(:apiuser).secret)
+    grant_api_user_access
     
     get :show, :format => :json, :id => '1'
     
