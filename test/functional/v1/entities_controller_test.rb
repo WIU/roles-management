@@ -1,6 +1,5 @@
 require 'test_helper'
 
-# These tests are run using the fake CAS user 'casuser'
 class Api::V1::EntitiesControllerTest < ActionController::TestCase
   test "unauthenticated user should redirected to cas" do
     revoke_all_access

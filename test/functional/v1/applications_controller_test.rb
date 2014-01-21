@@ -6,7 +6,7 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
   end
 
   test "JSON index request should include certain attributes" do
-    grant_test_user_admin_access
+    ensure_test_user_has_admin_access
   
     get :index, :format => :json
   
@@ -44,7 +44,7 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
   test "JSON index request should not include disabled entities" do
     disabledEntity = entities(:disabledPerson)
   
-    grant_test_user_admin_access
+    ensure_test_user_has_admin_access
   
     get :index, :format => :json
   
@@ -72,7 +72,7 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
   end
   
   test "JSON show request should include certain attributes" do
-    grant_test_user_admin_access
+    ensure_test_user_has_admin_access
   
     get :show, :format => :json, :id => '1'
   
@@ -114,7 +114,7 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
     assert disabledEntity.application_ownerships.length > 0, "disabled entity fixture needs at least one application ownership"
     assert disabledEntity.application_operatorships.length > 0, "disabled entity fixture needs at least one application operatorship"
 
-    grant_test_user_admin_access
+    ensure_test_user_has_admin_access
 
     get :show, :format => :json, :id => disabledEntity.application_ownerships[0].id
 

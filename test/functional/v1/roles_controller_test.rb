@@ -1,6 +1,5 @@
 require 'test_helper'
 
-# These tests are run using the fake CAS user 'casuser'
 class Api::V1::RolesControllerTest < ActionController::TestCase
   test "JSON show request should include certain attributes" do
     grant_api_user_access
