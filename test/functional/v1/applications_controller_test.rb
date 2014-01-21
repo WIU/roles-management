@@ -1,11 +1,8 @@
 require 'test_helper'
 
 class Api::V1::ApplicationsControllerTest < ActionController::TestCase
-  setup do
-    grant_api_user_access
-  end
-
   test "JSON index request should include certain attributes" do
+    grant_api_user_access
     ensure_test_user_has_admin_access
   
     get :index, :format => :json
@@ -42,6 +39,8 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
   end
   
   test "JSON index request should not include disabled entities" do
+    grant_api_user_access
+    
     disabledEntity = entities(:disabledPerson)
   
     ensure_test_user_has_admin_access
@@ -62,16 +61,13 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
   end
 
   test "JSON index request should be empty without admin access, ownerships, or operatorships" do
-    #grant_test_user_basic_access
-  
     get :index, :format => :json
-  
-    applications = JSON.parse(response.body)
     
-    assert applications.length == 0, "JSON response should not have any applications listed for this test, found #{applications.length}"
+    assert response.body.blank?, "JSON response should have been blank"
   end
   
   test "JSON show request should include certain attributes" do
+    grant_api_user_access
     ensure_test_user_has_admin_access
   
     get :show, :format => :json, :id => '1'
@@ -109,6 +105,8 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
   end
   
   test "JSON show request should not include disabled entities" do
+    grant_api_user_access
+    
     disabledEntity = entities(:disabledPerson)
 
     assert disabledEntity.application_ownerships.length > 0, "disabled entity fixture needs at least one application ownership"
