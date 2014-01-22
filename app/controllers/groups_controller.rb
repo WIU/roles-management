@@ -10,25 +10,25 @@ class GroupsController < ApplicationController
     respond_with @groups
   end
   
-  def create
-    @group.save
-    respond_with @group
-  end
+  # def create
+  #   @group.save
+  #   respond_with @group
+  # end
   
-  def update
-    if params[:id] and params[:group]
-      @group = Group.find(params[:id])
-      
-      # ActiveResource (for API access) sends us members, operators, etc.
-      # API access will have to rely on other methods for assocating objects with a group, e.g.
-      # setting GroupRule.group_id instead of trying Group.rules << GroupRule.
-      @group.update_attributes(params[:group].except(:id, :members, :operators, :owners, :rules))
-      
-      respond_with @group
-    else
-      respond_with 422
-    end
-  end
+  # def update
+  #   if params[:id] and params[:group]
+  #     @group = Group.find(params[:id])
+  #     
+  #     # ActiveResource (for API access) sends us members, operators, etc.
+  #     # API access will have to rely on other methods for assocating objects with a group, e.g.
+  #     # setting GroupRule.group_id instead of trying Group.rules << GroupRule.
+  #     @group.update_attributes(params[:group].except(:id, :members, :operators, :owners, :rules))
+  #     
+  #     respond_with @group
+  #   else
+  #     respond_with 422
+  #   end
+  # end
   
   def show
     respond_with @group
