@@ -26,10 +26,8 @@ class Admin::OpsController < Admin::BaseController
     require 'active_directory_wrapper'
 
     if Rails.env.test?
-      puts "set to false"
       exists = false
     else
-      puts "querying AD"
       exists = ActiveDirectoryWrapper.group_exists?(params[:path])
     end
 

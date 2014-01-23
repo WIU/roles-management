@@ -1,7 +1,5 @@
-RolesManagement.Collections.RoleAssignments = Backbone.Collection.extend
-  #model: RolesManagement.Models.Application
-  #url: "/groups"
+RolesManagement.Models.RoleAssignment = Backbone.Model.extend()
 
-  # findByOuId: (id) ->
-  #   @filter (group) =>
-  #     group.get('ou_id') == id
+RolesManagement.Collections.RoleAssignments = Backbone.Collection.extend
+  model: RolesManagement.Models.RoleAssignment
+  url: "/role_assignments"

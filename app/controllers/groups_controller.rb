@@ -48,12 +48,15 @@ class GroupsController < ApplicationController
   
   private
   
+  # For Group#index. Loads groups which should appear on the main page, not necessarily
+  # all groups accessible. This is defined as groups the current_user owns or operates.
   def load_groups
-    if params[:q]
-      groups_table = Group.arel_table
-      @groups = Group.with_permissions_to(:read).where(groups_table[:name].matches("%#{params[:q]}%").and(groups_table[:code].eq(nil)))
-    else
-      @groups = Group.with_permissions_to(:read).all
-    end
+    # if params[:q]
+    #   groups_table = Group.arel_table
+    #   @groups = Group.with_permissions_to(:read).where(groups_table[:name].matches("%#{params[:q]}%").and(groups_table[:code].eq(nil)))
+    # else
+    #   @groups = Group.with_permissions_to(:read).all
+    # end
+    @groups = (current_user.group_operatorships.map{ |o| o.group } + current_user.group_ownerships.map{ |o| o.group }).uniq
   end
 end

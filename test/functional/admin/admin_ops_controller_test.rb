@@ -22,7 +22,7 @@ class Admin::OpsControllerTest < ActionController::TestCase
     
     # Ensure authorized admin users have access
     grant_test_user_admin_access
-  
+      
     get :ad_path_check, { path: 'somewhere', format: :json }
     assert_response :success
   end
