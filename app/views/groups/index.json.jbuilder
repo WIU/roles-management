@@ -4,7 +4,7 @@ json.cache! ['app', @cache_key] do
     
     json.ou_name group.ou_id ? group.ou.name : nil
     
-    json.members group.members.select{ |m| m.status == true } do |member|
+    json.members group.members.select{ |m| m.active == true } do |member|
       json.extract! member, :id, :name, :type
     end
   end

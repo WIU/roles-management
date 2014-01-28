@@ -4,11 +4,11 @@ collection @applications
 @applications.each do |application|
   attributes :id, :name
 
-  child application.operatorships.select{ |o| o.entity.status == true } => :operators do |operatorship|
+  child application.operatorships.select{ |o| o.entity.active == true } => :operators do |operatorship|
     glue(:entity) { attributes :id, :name, :type }
   end
 
-  child application.owners.select{ |o| o.status == true } => :owners do |owner|
+  child application.owners.select{ |o| o.active == true } => :owners do |owner|
     attributes :id, :name, :type
   end
 

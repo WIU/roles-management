@@ -38,10 +38,10 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
     end
   end
   
-  test "JSON index request should not include disabled entities" do
+  test "JSON index request should not include inactive entities" do
     grant_api_user_access
     
-    disabledEntity = entities(:disabledPerson)
+    inactiveEntity = entities(:inactivePerson)
   
     ensure_test_user_has_admin_access
   
@@ -51,11 +51,11 @@ class Api::V1::ApplicationsControllerTest < ActionController::TestCase
     
     applications.each do |a|
       a["owners"].each do |o|
-        assert o["id"].to_i != disabledEntity.id, "JSON response should not include disabled entity"
+        assert o["id"].to_i != inactiveEntity.id, "JSON response should not include inactive entity"
       end
   
       a["operators"].each do |o|
-        assert o["id"].to_i != disabledEntity.id, "JSON response should not include disabled entity"
+        assert o["id"].to_i != inactiveEntity.id, "JSON response should not include inactive entity"
       end
     end
   end
