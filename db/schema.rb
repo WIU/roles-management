@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(:version => 20131209215315) do
     t.string   "last"
     t.string   "email"
     t.string   "loginid"
-    t.boolean  "status",       :default => true
+    t.boolean  "active",       :default => true
     t.string   "phone"
     t.string   "address"
     t.integer  "title_id"
@@ -147,9 +147,11 @@ ActiveRecord::Schema.define(:version => 20131209215315) do
   add_index "entities", ["ou_id"], :name => "index_entities_on_ou_id"
 
   create_table "group_memberships", :force => true do |t|
-    t.integer "group_id"
-    t.integer "entity_id"
-    t.boolean "calculated", :default => false
+    t.integer  "group_id"
+    t.integer  "entity_id"
+    t.boolean  "calculated", :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "group_operatorships", :force => true do |t|
