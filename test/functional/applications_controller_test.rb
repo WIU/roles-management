@@ -13,15 +13,6 @@ class ApplicationsControllerTest < ActionController::TestCase
     assert_redirected_to(:controller => "site", :action => "access_denied")
   end
 
-  test "valid cas user with access role should get index" do
-    grant_test_user_basic_access
-
-    get :index
-
-    assert_response :success
-    assert_not_nil assigns(:applications)
-  end
-
   test "JSON request should include certain attributes" do
     grant_test_user_admin_access
 

@@ -33,6 +33,8 @@ class GroupsController < ApplicationController
   # end
   
   def show
+    @cache_key = @group.updated_at.try(:utc).try(:to_s, :number)
+    
     respond_with @group
   end
   
