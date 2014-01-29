@@ -1,18 +1,17 @@
-collection @applications
-cache ['api_v1_applications_index', @applications]
+json.cache! ['api_v1_applications_index', @cache_key] do
+  json.array!(@applications) do |application|
+    json.extract! application, :id, :name
 
-@applications.each do |application|
-  attributes :id, :name
+    json.operators application.operators.select{ |o| o.active == true } do |operator|
+      json.extract! operator, :id, :name
+    end
 
-  child application.operatorships.select{ |o| o.entity.active == true } => :operators do |operatorship|
-    glue(:entity) { attributes :id, :name }
-  end
+    json.owners application.owners.select{ |o| o.active == true } do |owner|
+      json.extract! owner, :id, :name
+    end
 
-  child application.owners.select{ |o| o.active == true } => :owners do |owner|
-    attributes :id, :name
-  end
-
-  child :roles do |role|
-    attributes :id, :token, :ad_path
+    json.roles application.roles do |role|
+      json.extract! role, :id, :token, :ad_path
+    end
   end
 end

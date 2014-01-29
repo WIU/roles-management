@@ -9,12 +9,17 @@ module Api
       def index
         logger.tagged('API') { logger.info "#{current_user.log_identifier}@#{request.remote_ip}: Loaded or searched people index." }
         
+        @cache_key = (params[:q] ? params[:q] : '') + '/' + Digest::MD5.hexdigest(@people.map(&:cache_key).to_s)
+        
         render "api/v1/people/index"
       end
 
       def show
         if @person and @person.active
           logger.tagged('API') { logger.info "#{current_user.log_identifier}@#{request.remote_ip}: Loaded person view (show) for #{@person.loginid}." }
+          
+          @cache_key = @person.updated_at.try(:utc).try(:to_s, :number)
+          
           render "api/v1/people/show"
         elsif @person and @person.active == false
           logger.tagged('API') { logger.info "#{current_user.log_identifier}@#{request.remote_ip}: Loaded person view (show) for #{@person.loginid} but person is disabled. Returning 404." }

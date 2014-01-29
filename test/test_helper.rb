@@ -52,9 +52,9 @@ class ActiveSupport::TestCase
   
   # Test whether the currently set up user has admin access
   def ensure_test_user_has_admin_access
-    Authorization.current_user.role_symbols.include? 'admin'
+    assert Authorization.current_user.role_symbols.include?('admin'), "test user does not have admin access"
   end
-  
+
   def grant_whitelisted_access
     request.env['REMOTE_ADDR'] = '1.2.3.4'
   end
