@@ -5,6 +5,7 @@ class Diary::DiaryController < ApplicationController
 
   def index
     @entries = DiaryEntry.order('created_at DESC').all.uniq{ |e| e.diary_uid_id }
+    @cache_key = @entries.max_by(&:created_at).to_s
     
     render 'diary/index'
   end
