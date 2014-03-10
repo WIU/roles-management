@@ -1,13 +1,11 @@
-/*
-*= require bootstrap
-*= require bootstrap-overrides
-*= require token-input-facebook
-*= require token-input-overrides
-*= require applications
-*= require groups
-*= require sidebar
-*= require_self
-*/
+@import "bootstrap";
+
+@import "bootstrap-overrides"; // this needs to be converted to simply using SASS variables
+@import "token-input-facebook";
+@import "token-input-overrides";
+@import "applications";
+@import "groups";
+@import "sidebar";
 
 .disable-text-select {
   -webkit-touch-callout: none;

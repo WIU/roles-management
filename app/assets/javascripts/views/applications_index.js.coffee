@@ -1,7 +1,7 @@
 DssRm.Views.ApplicationsIndex = Backbone.View.extend(
   tagName: "div"
   id: "applications"
-  className: "row-fluid"
+  className: "row"
   
   initialize: (options) ->
     @$el.html JST["templates/applications/index"]()

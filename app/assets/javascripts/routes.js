@@ -504,9 +504,9 @@
   groups_path: function(options) {
   return Utils.build_path([], ["format"], [2,[2,[7,"/",false],[6,"groups",false]],[1,[2,[8,".",false],[3,"format",false]],false]], arguments);
   },
-// jasminerice.spec_index => /jasmine/spec(.:format)
-  jasminerice_spec_index_path: function(options) {
-  return Utils.build_path([], ["format"], [2,[2,[2,[2,[7,"/",false],[6,"jasmine",false]],[7,"/",false]],[6,"spec",false]],[1,[2,[8,".",false],[3,"format",false]],false]], arguments);
+// jasmine_rails.root => /specs/
+  jasmine_rails_root_path: function(options) {
+  return Utils.build_path([], [], [2,[2,[7,"/",false],[6,"specs",false]],[7,"/",false]], arguments);
   },
 // logout => /logout(.:format)
   logout_path: function(options) {

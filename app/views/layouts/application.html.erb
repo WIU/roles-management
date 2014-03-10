@@ -15,41 +15,56 @@
   </script>
   <% end %>
 
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <%= link_to "Roles Management", applications_url, :class => "brand" %>
-        
-        <div class="nav-collapse collapse">
-          <ul class="nav pull-right">
-            <li class="dropdown">
-              <% _has_role? :admin do %>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrate <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <% unless session[:impersonation_id].nil? %>
-                  <li><a href="#unimpersonate">Unimpersonate</a></li>
-                <% else %>
-                  <li><a href="#impersonate">Impersonate…</a></li>
-                <% end %>
-                <li class="divider"></li>
-                <li><a href="#api-keys">API Keys…</a></li>
-                <li><a href="#whitelist">API Whitelist…</a></li>
-                <li class="divider"></li>
-                <!--<li><a href="#event-log">Event Log…</a></li>-->
-                <li><a href="#queued-jobs">Queued Jobs…</a></li>
-                <li class="divider"></li>
-                <li><a href="#about">About…</a></li>
-              </ul>
-              <% end %>
-              <li><%= link_to "Log out", logout_url %></li>
-            </li>
-          </ul>
-        </div><!-- /.nav-collapse -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Roles Management", applications_url, :class => "navbar-brand" %>
       </div>
-    </div><!-- /navbar-inner -->
-  </div><!-- /navbar -->
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <% _has_role? :admin do %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrate <b class="caret"></b></a>
+            <% end %>
+            <ul class="dropdown-menu">
+              <% unless session[:impersonation_id].nil? %>
+                <li><a href="#unimpersonate">Unimpersonate</a></li>
+              <% else %>
+                <li><a href="#impersonate">Impersonate…</a></li>
+              <% end %>
+              <li class="divider"></li>
+              <li><a href="#api-keys">API Keys…</a></li>
+              <li><a href="#whitelist">API Whitelist…</a></li>
+              <li class="divider"></li>
+              <li><a href="#queued-jobs">Queued Jobs…</a></li>
+              <li class="divider"></li>
+              <li><a href="#about">About…</a></li>
+            </ul>
+          </li>
+          <li><a  href="#">Help</a></li>
+          <li><%= link_to "Log out", logout_url %></li>
+        </ul>
+        
+        <!--<form class="navbar-form navbar-right" role="form">
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Sign in</button>
+        </form>-->
+      </div><!--/.navbar-collapse -->
+    </div>
+  </div>
 
-  <div id="main-body" class="container-fluid"><%= yield %></div>
+  <div id="main-body" class="container"><%= yield %></div>
 
   <%= javascript_include_tag "application" %>
   <%= yield :javascript %>
