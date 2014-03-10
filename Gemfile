@@ -2,54 +2,47 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.17'
 
-group :assets do
+#group :assets do
   gem 'sass-rails',   ' ~> 3.2.3'
   gem 'coffee-rails', ' ~> 3.2.1'
   gem 'uglifier',     ' >= 1.0.3'
-end
+  gem 'bootstrap-sass', '~> 3.1.1'
+  #end
 
 group :production do
-  #gem 'syslogger', :git => 'https://github.com/cthielen/syslogger.git'
   gem 'pg'
   gem 'dalli'
-  # gem 'unicorn'
-  # gem 'unicorn-worker-killer'
   gem 'exception_notification'
-end
-
-group :development do
-  gem 'letter_opener'
-  #gem 'ruby-prof', :platform => :mri
-  #gem 'debugger', :platform => :mri
-  #gem 'active_record_query_trace'
 end
 
 group :development, :test do
   gem 'jasmine-rails' # for JS unit testing
   gem 'capybara' # for JS integration testing
-  #gem 'selenium-webdriver'
   gem 'poltergeist' # for PhantomJS-based testing with capybara
   gem 'sqlite3'
+  gem 'letter_opener'
 end
 
-gem "rubysl", "~> 2.0", :platform => :rbx
-
+# For deployment
 gem 'capistrano', '< 3.0.0'
 
+# For LDAP support
 gem 'ruby-ldap', :require => false
 
+# For CAS support
 gem 'rubycas-client', :git => 'https://github.com/rubycas/rubycas-client.git'
 
+# Javascript niceities
 gem 'ejs'
+gem 'js-routes', :git => 'git://github.com/railsware/js-routes.git'
 
+# Authorization layer
 gem 'declarative_authorization', "~> 0.5.7"
 
 # For MS Active Directory support
 gem 'net-ldap', :git => 'git://github.com/ruby-ldap/ruby-net-ldap.git', :require => false
 #gem 'active_directory', :git => 'git://github.com/richardun/active_directory.git', :require => false
 gem 'active_directory', :git => 'git://github.com/cthielen/active_directory.git', :require => false
-
-gem 'js-routes', :git => 'git://github.com/railsware/js-routes.git'
 
 # For JSON templates
 gem 'jbuilder'
