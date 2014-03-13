@@ -15,7 +15,19 @@ DssRm.Views.SidebarPin = Backbone.View.extend(
     @faded = options.faded
 
   render: ->
-    @$("span").html @model.escape('name')
+    @$("span#name").html @model.escape('name')
+    
+    # Set the icon accordingly - a 'person' for people and a 'count' for groups
+    if @model.get('type').toLowerCase() == 'person'
+      @$("span#pin-icon").removeClass('badge')
+      @$("span#pin-icon").addClass('glyphicon')
+      @$("span#pin-icon").addClass('glyphicon-user')
+      @$("span#pin-icon").html ''
+    else if @model.get('type').toLowerCase() == 'group'
+      @$("span#pin-icon").addClass('badge')
+      @$("span#pin-icon").removeClass('glyphicon')
+      @$("span#pin-icon").removeClass('glyphicon-user')
+      @$("span#pin-icon").html '5'
     
     # Highlight this entity?
     if @highlighted

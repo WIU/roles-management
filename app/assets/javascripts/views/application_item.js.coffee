@@ -26,12 +26,13 @@ DssRm.Views.ApplicationItem = Backbone.View.extend(
       
     @$(".details").hide() if @relationship is "operator"
     
-    # Highlight this application?
-    if DssRm.view_state.getSelectedApplication() == @model
-      @$el.css("box-shadow", "#08C 0 0 10px").css "border", "1px solid #08C"
-    else
-      @$el.css "border", "1px solid #CCC"
-      #@$el.css("box-shadow", "0 1px 3px rgba(0, 0, 0, 0.3)").css "border", "1px solid #CCC"
+    # # Highlight this application?
+    # if DssRm.view_state.getSelectedApplication() == @model
+    #   #@$el.css("box-shadow", "#08C 0 0 10px").css "border", "1px solid #08C"
+    #   @$el.css "border", "1px solid #ccc"
+    # else
+    #   @$el.css "border", "1px solid #CCC"
+    #   #@$el.css("box-shadow", "0 1px 3px rgba(0, 0, 0, 0.3)").css "border", "1px solid #CCC"
     
     # Shade/unshade this application? (based on DssRm.view_state focus)
     focused_application_id = DssRm.view_state.get 'focused_application_id'
@@ -60,7 +61,10 @@ DssRm.Views.ApplicationItem = Backbone.View.extend(
     $role_item.find("a").html role.escape("name")
     $role_item.attr "title", role.get("description")
     if role.get("id") is DssRm.view_state.get('selected_role_id')
-      $role_item.css("box-shadow", "#08C 0 0 5px").css("border", "1px solid #08C")
+      $role_item.addClass 'highlighted'
+    else
+      $role_item.removeClass 'highlighted'
+      #$role_item.css("box-shadow", "#08C 0 0 5px").css("border", "1px solid #08C")
     $role_item
 
   applicationUrl: ->

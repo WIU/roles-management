@@ -1,3 +1,12 @@
+#pin-icon {
+  width: 25px;
+  margin-right: 3px;
+  
+  &.glyphicon {
+    padding-left: 6px;
+  }
+}
+
 input#search_sidebar {
   margin-bottom: 6px;
   margin-top: 3px;
@@ -10,8 +19,6 @@ i.sidebar-search-details {
 }
 
 #sidebar {
-//  position: fixed;
-//  width: 280px;
   height: calc(100% - 90px);
   height: -webkit-calc(100% - 90px); /* required for Safari */
   
@@ -87,19 +94,23 @@ i.sidebar-search-details {
       border-color: #BCE8F1;
       color: #3A87AD;
     }
-    li.person.highlighted {
+    /*li.person.highlighted {
       box-shadow: #08C 0 0 5px;
       border: 1px solid #08C;
-    }
+    }*/
 
     li.group {
       background-color: #DFF0D8;
       border-color: #D6E9C6;
       color: #468847;
+      
+      .badge {
+        background-color: #468847;
+      }
     }
-    li.group.highlighted {
+    /*li.group.highlighted {
       box-shadow: #468847 0 0 5px;
       border: 1px solid #468847;
-    }
+    }*/
   }
 }
