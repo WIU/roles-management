@@ -48,6 +48,8 @@ DssRm.Views.ApplicationsIndexCards = Backbone.View.extend(
     DssRm.applications.each (application) =>
       frag.appendChild @renderCard(application).el
     
+    @$('#application-count').html DssRm.applications.length
+    
     @$('#cards').append frag
     @
   

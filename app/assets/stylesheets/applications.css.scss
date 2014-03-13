@@ -25,6 +25,28 @@
   display: none;
 }
 
+#cards-area,#sidebar-area {
+  padding-top: 62px;
+}
+
+.unified-search-bar {
+  position: fixed;
+  top: 51px;
+  left: 0px;
+  background-color: #eee;
+  border-bottom: 1px solid #bbb;
+  width: 100%;
+  height: 46px;
+}
+
+h5.counter {
+  text-align: center;
+  text-transform: uppercase;
+  color: #777;
+  font-size: 10pt;
+  margin: 5px 0 5px 0;
+}
+
 #cards {
   -webkit-column-count: auto;
   -webkit-column-width: 335px;
@@ -35,6 +57,7 @@
   column-count: auto;
   column-gap: 10px;
   column-width: 335px;
+  padding-top: 10px;
 }
 
 .card {
@@ -52,6 +75,7 @@
   color: #333;
   /*float: none !important;*/
   margin: 15px;
+  margin-top: 0;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;

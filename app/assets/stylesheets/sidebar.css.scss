@@ -17,6 +17,7 @@ i.sidebar-search-details {
   
   #highlighted_pins {
     display: none;
+    padding-left: 0;
   }
   
   #sidebar-scrollable {
@@ -25,14 +26,6 @@ i.sidebar-search-details {
     overflow-y: scroll;
   }
   
-  h5 {
-    text-align: center;
-    text-transform: uppercase;
-    color: #777;
-    font-size: 8pt;
-    margin: 5px 0 5px 0;
-  }
-
   #highlighted_results>li {
     margin-bottom: 6px;
   }
@@ -49,6 +42,7 @@ i.sidebar-search-details {
     margin-top: 15px;
     margin-left: 0px;
     list-style-type: none;
+    padding-left: 0;
 
     li {
       padding: 2px 4px 2px;
@@ -61,8 +55,8 @@ i.sidebar-search-details {
       margin: 3px;
       
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 400;
       text-transform: none;
 
       i {
