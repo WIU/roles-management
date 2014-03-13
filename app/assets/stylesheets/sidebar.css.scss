@@ -10,8 +10,8 @@ i.sidebar-search-details {
 }
 
 #sidebar {
-  position: fixed;
-  width: 280px;
+//  position: fixed;
+//  width: 280px;
   height: calc(100% - 90px);
   height: -webkit-calc(100% - 90px); /* required for Safari */
   
@@ -59,6 +59,11 @@ i.sidebar-search-details {
       -moz-border-radius: 3px;
       border-radius: 3px;
       margin: 3px;
+      
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: none;
 
       i {
         float: right;
