@@ -7,7 +7,7 @@ end
 
 # Run LDAP import updater every hour
 every 4.hours do
-  rake "ldap:import"
+  #rake "ldap:import"
   envcommand 'nice -n 10 bundle exec rake ldap:import' # --silent'
 end
 
