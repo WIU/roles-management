@@ -173,7 +173,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ruby-ldap (0.9.16)
-    sass (3.3.2)
+    sass (3.3.3)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -192,7 +192,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.39)
-    uglifier (2.4.0)
+    uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     websocket-driver (0.3.2)
