@@ -93,6 +93,10 @@ input#search_sidebar {
       background-color: #D9EDF7;
       border-color: #BCE8F1;
       color: #3A87AD;
+      
+      background-color: whiteSmoke;
+      border-color: #ccc;
+      color: #333;
     }
     /*li.person.highlighted {
       box-shadow: #08C 0 0 5px;
@@ -104,8 +108,17 @@ input#search_sidebar {
       border-color: #D6E9C6;
       color: #468847;
       
+      background-color: whiteSmoke;
+      border-color: #ccc;
+      color: #333;
+      
+      
       .badge {
         background-color: #468847;
+        
+        background-color: #333;
+        color: whiteSmoke;
+        
       }
     }
     /*li.group.highlighted {
