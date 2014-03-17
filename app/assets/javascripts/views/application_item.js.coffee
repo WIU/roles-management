@@ -86,13 +86,15 @@ DssRm.Views.ApplicationItem = Backbone.View.extend(
         focused_entity_id: null
     else
       # Toggling on
+      $(e.currentTarget).addClass 'highlighted'
       status_bar.show "Fetching role details ..."
-      $loading = $('<i class="loading" />')
-      $(e.currentTarget).append $loading
+      loading_html = '<span class="loading blue"></span>'
+      $(e.currentTarget).find('.badge').first().html(loading_html)
+      # $(e.currentTarget).append $loading
       
       role.fetch
         success: =>
-          $loading.remove()
+          #$loading.remove()
           status_bar.hide()
         
           DssRm.view_state.set

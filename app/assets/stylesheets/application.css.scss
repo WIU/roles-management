@@ -16,7 +16,7 @@
   user-select: none;
 }
 
-i.loading {
+.loading {
   width: 16px;
   height: 16px;
   display: inline-block;
@@ -24,6 +24,14 @@ i.loading {
   opacity: 0.4;
   filter: alpha(opacity = 40); /* IE8 and earlier */
   float: right;
+  
+  &.blue {
+    background: 0px 0px url('/assets/loading-blue.gif') no-repeat;
+    opacity: 1.0;
+    width: 12px;
+    height: 12px;
+    background-size: 100%;
+  }
 }
 
 input#search_applications {
