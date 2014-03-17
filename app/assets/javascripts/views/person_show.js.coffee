@@ -8,7 +8,7 @@ class DssRm.Views.PersonShow extends Backbone.View
   events:
     "click #apply"                                  : "save"
     "click a#rescan"                                : "rescan"
-    "hidden"                                        : "cleanUpModal"
+    "hide.bs.modal"                                 : "cleanUpModal"
     "click #delete"                                 : "deleteEntity"
     "click #add_role_assignment_application_button" : "addRoleAssignmentApplication"
 
@@ -122,7 +122,7 @@ class DssRm.Views.PersonShow extends Backbone.View
   # Renders and initializes a single tokenInput for the role (assignment) tab.
   # Does not insert into DOM.
   renderRoleAssignmentTokenInput: (name, id) ->
-    $input = $("<p><label for=\"_token_input_#{id}\">#{name}</label><input type=\"text\" name=\"_token_input_#{id}\" class=\"token_input\" /></p>")
+    $input = $("<div class=\"form-group\"><label for=\"_token_input_#{id}\">#{name}</label><input type=\"text\" name=\"_token_input_#{id}\" class=\"token_input\" /></div>")
     $input.find("input").tokenInput Routes.roles_path() + "?application_id=#{id}",
       crossDomain: false
       defaultText: ""

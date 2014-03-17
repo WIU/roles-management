@@ -3,7 +3,7 @@ DssRm.Views.AboutDialog = Backbone.View.extend(
   className: "modal"
   id: "aboutDialogModal"
   events:
-    "hidden": "cleanUpModal"
+    "hide.bs.modal": "cleanUpModal"
 
   initialize: ->
     @$el.html JST["templates/application/about_dialog"]()

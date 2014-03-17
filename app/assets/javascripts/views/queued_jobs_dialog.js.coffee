@@ -3,7 +3,7 @@ DssRm.Views.QueuedJobsDialog = Backbone.View.extend(
   className: "modal"
   id: "queuedJobsDialogModal"
   events:
-    "hidden": "cleanUpModal"
+    "hide.bs.modal": "cleanUpModal"
 
   initialize: (options) ->
     @$el.html JST["templates/application/queued_jobs_dialog"]()

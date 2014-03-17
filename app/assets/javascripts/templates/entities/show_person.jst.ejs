@@ -16,85 +16,92 @@
       <div style="float: right; width: 80%;">
         <div class="tab-content">
           <div class="tab-pane fade in active" id="summary">
-            <span style="display: inline-block;">
-              <label for="first">Name</label>
-              <input type="text" name="first" class="text small" /> <input type="text" name="last" class="text small" />
-            </span>
-    
-            <br />
-    
-            <span style="display: inline-block;">
-              <label for="loginid">Login ID</label>
-              <input type="text" name="loginid" class="text input-small" />
-            </span>
-            <span style="display: inline-block;">
-              <label for="email">E-Mail</label>
-              <input type="text" name="email" class="text small" />
-            </span>
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="first" style="display: block;">Name</label>
+                  <input type="text" name="first" class="form-control" style="display: inline-block; width: 49%; vertical-align: middle;" /> <input type="text" name="last" class="form-control pull-right" style="display: inline-block; width: 49%; vertical-align: middle;" />
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label for="loginid">Login ID</label>
+                  <input type="text" name="loginid" class="form-control" />
+                </div>
 
-            <br />
+                <div class="form-group col-md-8">
+                  <label for="email">E-Mail</label>
+                  <input type="text" name="email" class="form-control" />
+                </div>
+              </div>
 
-            <span style="display: inline-block;">
-              <label for="phone">Phone</label>
-              <input type="text" name="phone" class="text input-medium" />
-            </span>
-            <span style="display: inline-block;">
-              <label for="address">Address</label>
-              <input type="text" name="address" class="text input-xlarge" />
-            </span>
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label for="phone">Phone</label>
+                  <input type="text" name="phone" class="form-control" />
+                </div>
+
+                <div class="form-group col-md-8">
+                  <label for="address">Address</label>
+                  <input type="text" name="address" class="form-control" />
+                </div>
+              </div>
+            </form>
           </div>
           <div class="tab-pane fade" id="relations">
-            <label for="favorites">Favorites</label>
-            <p>
-              <input type="text" name="favorites" class="token_input" />
-            </p>
+            <form role="form" class="col-md-12">
+              <div class="form-group">
+                <label for="favorites">Favorites</label>
+                <input type="text" name="favorites" class="token_input" />
+              </div>
 
-            <label for="group_ownerships">Group Ownerships</label>
-            <p>
-              <input type="text" name="group_ownerships" class="token_input" />
-            </p>
+              <div class="form-group">
+                <label for="group_ownerships">Group Ownerships</label>
+                <input type="text" name="group_ownerships" class="token_input" />
+              </div>
 
-            <label for="group_operatorships">Group Operatorships</label>
-            <p>
-              <input type="text" name="group_operatorships" class="token_input" />
-            </p>
+              <div class="form-group">
+                <label for="group_operatorships">Group Operatorships</label>
+                <input type="text" name="group_operatorships" class="token_input" />
+              </div>
 
-            <label for="non_ou_group_memberships">Group Memberships</label>
-            <p>
-              <input type="text" name="non_ou_group_memberships" class="token_input" />
-            </p>
+              <div class="form-group">
+                <label for="non_ou_group_memberships">Group Memberships</label>
+                <input type="text" name="non_ou_group_memberships" class="token_input" />
+              </div>
 
-            <label for="ou_group_memberships">Organizational Units</label>
-            <p>
-              <input type="text" name="ou_group_memberships" class="token_input" />
-            </p>
+              <div class="form-group">
+                <label for="ou_group_memberships">Organizational Units</label>
+                <input type="text" name="ou_group_memberships" class="token_input" />
+              </div>
+            </form>
           </div>
           <div class="tab-pane fade" id="roles">
-            <div id="role_assignments" />
-    
-            <div id="add_application" style="text-align: center;">
+            <div id="role_assignments" class="col-md-12" />
+            
+            <div id="add_application" class="col-md-12" style="text-align: center;">
               <hr />
-      
-              <div class="input-append">
-                <input type="text" class="col-md-4" placeholder="Add another application ..." id="add_role_assignment_application_search" />
-                <button type="button" class="btn" id="add_role_assignment_application_button">Add</button>
-              </div>
+              <input type="text" class="form-control" placeholder="Assign another application ..." id="add_role_assignment_application_search" style="display: inline-block; vertical-align: middle; width: 55%;" />
+              <button type="button" class="btn btn-default" id="add_role_assignment_application_button"  style="display: inline-block; vertical-align: middle;">Add</button>
             </div>
           </div>
         </div>
+      </div>
+      <div style="clear: both;"></div>
     </div>
     <div class="modal-footer" style="text-align: center;">
       <div style="float: left;">
-        <a href="#" class="btn col-md-1" id="rescan">Rescan</a>
+        <a href="#" class="btn btn-default" id="rescan">Rescan</a>
       </div>
       <% if( !model.isReadOnly()) { %>
         <div class="btn-group" data-toggle="buttons-radio">
-          <button type="button" class="btn" id="status-active">Active</button>
-          <button type="button" class="btn" id="status-inactive">Inactive</button>
+          <button type="button" class="btn btn-default" id="status-active">Active</button>
+          <button type="button" class="btn btn-default" id="status-inactive">Inactive</button>
         </div>
 
         <div style="float: right;">
-          <button class="btn btn-primary col-md-2" id="apply">Apply Changes</button>
+          <button class="btn btn-primary" id="apply">Apply Changes</button>
         </div>
       <% } %>
     </div>

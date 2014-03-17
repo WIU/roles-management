@@ -3,9 +3,9 @@ DssRm.Views.WhitelistDialog = Backbone.View.extend(
   className: "modal"
   id: "whitelistDialogModal"
   events:
-    "hidden": "cleanUpModal"
-    "submit #new-address": "newAddress"
-    "click a#remove_ip": "removeAddress"
+    "hide.bs.modal"       : "cleanUpModal"
+    "submit #new-address" : "newAddress"
+    "click a#remove_ip"   : "removeAddress"
 
   initialize: (options) ->
     @$el.html JST["templates/application/whitelist_dialog"]()

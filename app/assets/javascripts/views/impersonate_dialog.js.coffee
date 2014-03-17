@@ -3,7 +3,7 @@ DssRm.Views.ImpersonateDialog = Backbone.View.extend(
   className: "modal"
   id: "impersonateDialogModal"
   events:
-    "hidden"              : "cleanUpModal"
+    "hide.bs.modal"       : "cleanUpModal"
     "click a.btn-primary" : "impersonate"
     "keyup input#loginid" : "checkLoginID"
     "shown"               : "postInitialize"

@@ -3,8 +3,8 @@ DssRm.Views.EventLogDialog = Backbone.View.extend(
   className: "modal"
   id: "eventLogDialogModal"
   events:
-    "hidden": "cleanUpModal"
-    "show"  : "fetchEntries"
+    "hide.bs.modal" : "cleanUpModal"
+    "show"          : "fetchEntries"
 
   initialize: (options) ->
     @$el.html JST["templates/application/event_log_dialog"]()

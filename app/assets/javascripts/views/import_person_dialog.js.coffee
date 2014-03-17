@@ -5,9 +5,9 @@ DssRm.Views.ImportPersonDialog = Backbone.View.extend(
   className: "modal"
   id: "importPersonDialogModal"
   events:
-    'shown'                    : 'loadResults'
-    'hidden'                   : 'cleanUpModal'
-    'click .form-search>button': 'performSearch'
+    'shown'                     : 'loadResults'
+    'hide.bs.modal'             : 'cleanUpModal'
+    'click .form-search>button' : 'performSearch'
 
   initialize: (options) ->
     @term = options.term

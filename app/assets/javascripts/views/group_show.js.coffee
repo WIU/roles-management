@@ -9,7 +9,7 @@ class DssRm.Views.GroupShow extends Backbone.View
     "click #apply"                   : "save"
     "click button#group_rule_add"    : "addRule"
     "click button#remove_group_rule" : "removeRule"
-    "hidden"                         : "cleanUpModal"
+    "hide.bs.modal"                  : "cleanUpModal"
     "click #delete"                  : "deleteEntity"
     "change table#rules input"       : "persistRuleChanges"
     "change table#rules select"      : "persistRuleChanges"

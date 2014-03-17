@@ -3,9 +3,9 @@ DssRm.Views.ApiKeysDialog = Backbone.View.extend(
   className: "modal"
   id: "apiKeysDialogModal"
   events:
-    "hidden": "cleanUpModal"
-    "submit #new-key": "newApiKey"
-    "click a#delete-key": "removeApiKey"
+    "hide.bs.modal"      : "cleanUpModal"
+    "submit #new-key"    : "newApiKey"
+    "click a#delete-key" : "removeApiKey"
 
   initialize: (options) ->
     @$el.html JST["templates/application/api_keys_dialog"]()
