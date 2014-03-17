@@ -8,7 +8,7 @@ class DssRm.Views.ApplicationShow extends Backbone.View
   events:
     "click #apply"             : "save"
     "click a#delete"           : "deleteApplication"
-    "hidden"                   : "cleanUpModal"
+    "hide.bs.modal"            : "cleanUpModal"
     "click button#add_role"    : "addRole"
     "click button#remove_role" : "removeRole"
     "change table#roles input" : "persistRoleChanges"
@@ -121,11 +121,11 @@ class DssRm.Views.ApplicationShow extends Backbone.View
     @renderRoles()
     
     # Active Directory tab
-    @$("div#ad_fields").empty()
+    @$("table#ad_fields>tbody").empty()
     @model.roles.each (role) =>
       roleItem = new DssRm.Views.ApplicationShowAD(model: role)
       roleItem.render()
-      @$("div#ad_fields").append roleItem.el
+      @$("table#ad_fields>tbody").append roleItem.el
 
     @
   

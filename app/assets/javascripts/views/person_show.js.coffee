@@ -91,23 +91,23 @@ class DssRm.Views.PersonShow extends Backbone.View
         organization.set('_destroy', true)
   
   initializeRolesTab: ->
-    @$("#add_role_assignment_application_search").typeahead
-      minLength: 3
-      sorter: (items) -> # required to keep the order given to process() in 'source'
-        items
-      highlighter: (item) ->
-        parts = item.split("####")
-        item = parts[1] # See: https://gist.github.com/3694758 (FIXME when typeahead supports passing objects)
-        query = @query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&")
-        ret = item.replace(new RegExp("(" + query + ")", "ig"), ($1, match) ->
-          "<strong>" + match + "</strong>"
-        )
-        ret = ret + parts[2]  if parts[2] isnt `undefined`
-        ret
-      source: @roleAssignmentApplicationSearch
-      updater: (item) =>
-        @roleAssignmentApplicationSearchResultSelected item, @
-      items: 5
+    # @$("#add_role_assignment_application_search").typeahead
+    #   minLength: 3
+    #   sorter: (items) -> # required to keep the order given to process() in 'source'
+    #     items
+    #   highlighter: (item) ->
+    #     parts = item.split("####")
+    #     item = parts[1] # See: https://gist.github.com/3694758 (FIXME when typeahead supports passing objects)
+    #     query = @query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&")
+    #     ret = item.replace(new RegExp("(" + query + ")", "ig"), ($1, match) ->
+    #       "<strong>" + match + "</strong>"
+    #     )
+    #     ret = ret + parts[2]  if parts[2] isnt `undefined`
+    #     ret
+    #   source: @roleAssignmentApplicationSearch
+    #   updater: (item) =>
+    #     @roleAssignmentApplicationSearchResultSelected item, @
+    #   items: 5
 
   resetRolesTab: ->
     $rolesTab = @$("div#role_assignments")

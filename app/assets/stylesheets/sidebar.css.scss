@@ -12,7 +12,7 @@ input#search_sidebar {
   margin-top: 3px;
 }
 
-i.sidebar-search-details {
+.sidebar-search-details {
   float: right;
   margin-left: 15px;
   margin-top: 2px;
@@ -66,7 +66,7 @@ i.sidebar-search-details {
       font-weight: 400;
       text-transform: none;
 
-      i {
+      a>.glyphicon {
         float: right;
         /* relative so z-index applies. z-index so the icons are clickable atop very long entity labels */
         position: relative;
@@ -79,7 +79,7 @@ i.sidebar-search-details {
       }
 
       &:hover {
-        i {
+        a>.glyphicon {
           display: block;
         }
       }

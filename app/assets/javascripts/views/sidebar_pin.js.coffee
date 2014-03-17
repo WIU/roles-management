@@ -43,15 +43,15 @@ DssRm.Views.SidebarPin = Backbone.View.extend(
     
     # Is this entity a favorite?
     if @favoritedByCurrentUser()
-      @$('a.entity-favorite-link>i').addClass('icon-star').removeClass('icon-star-empty').attr('title', 'Unfavorite')
+      @$('a.entity-favorite-link>.glyphicon').addClass('icon-star').removeClass('icon-star-empty').attr('title', 'Unfavorite')
     else
-      @$('a.entity-favorite-link>i').removeClass('icon-star').addClass('icon-star-empty').attr('title', 'Favorite')
+      @$('a.entity-favorite-link>.glyphicon').removeClass('icon-star').addClass('icon-star-empty').attr('title', 'Favorite')
     
     # if @model.isReadOnly()
     #   @$("i.icon-remove").hide()
     #   @$("i.icon-search").hide()
     # else
-    @$("i.icon-lock").hide()
+    @$(".glyphicon-lock").hide()
     @$(".entity-details-link").attr("href", @entityUrl()).on "click", (e) ->
       e.stopPropagation() # stop parent from receiving click
     

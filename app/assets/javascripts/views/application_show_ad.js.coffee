@@ -1,5 +1,5 @@
 DssRm.Views.ApplicationShowAD = Backbone.View.extend(
-  tagName: "span"
+  tagName: "tr"
   events:
     "keyup input[name=ad_path]": "adPathCheck"
   
