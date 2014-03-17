@@ -1,27 +1,31 @@
-<div class="modal-header">
-  <a class="close" data-dismiss="modal">×</a>
-  <h3>API Whitelist</h3>
-</div>
-<div class="modal-body">
-  <table class="table table-striped" id="addresses">
-    <thead>
-      <tr>
-        <th>IP Address</th>
-        <th>Reason</th>
-        <th>Last Access</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">×</a>
+      <h3>API Whitelist</h3>
+    </div>
+    <div class="modal-body">
+      <table class="table table-striped" id="addresses">
+        <thead>
+          <tr>
+            <th>IP Address</th>
+            <th>Reason</th>
+            <th>Last Access</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
 
-  <form class="well form-inline" id="new-address">
-    <span class="help-block">Add new address:</span>
-    <input type="text" name="address" class="col-md-3" placeholder="IP Address…" />
-    <input type="text" name="reason" class="col-md-3" placeholder="Reason…" />
-    <button type="submit" class="btn">Add</button>
-  </form>
-</div>
-<div class="modal-footer">
-  <a href="#" class="btn" data-dismiss="modal">Close</a>
+      <form class="well form-inline" id="new-address">
+        <label for="address" style="display: block;">Add new address</label>
+        <input type="text" name="address" class="form-control" placeholder="IP Address…" />
+        <input type="text" name="reason" class="form-control" placeholder="Reason…" />
+        <button type="submit" class="btn btn-primary" role="button">Add</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+    </div>
+  </div>
 </div>
