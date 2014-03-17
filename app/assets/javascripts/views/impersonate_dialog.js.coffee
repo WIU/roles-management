@@ -31,12 +31,12 @@ DssRm.Views.ImpersonateDialog = Backbone.View.extend(
         r.loginid is loginid
       ) isnt `undefined`
         # Write 'Ok' and enable the impersonate button
-        $("#impersonateDialogModal span#loginid_status").html "<span style='color: #00aa00;'>Ok</span>"
+        $("#impersonateDialogModal span#loginid_status").html "<span style='color: #00aa00;' class='glyphicon glyphicon-ok'></span>"
         $(".modal-footer a.btn-primary").attr("disabled", false).removeClass "disabled"
         @impersonate_user = loginid
       else
         # Write 'Not Found' and disable the impersonate button
-        $("#impersonateDialogModal span#loginid_status").html "<span style='color: #aa0000;'>Not found</span>"
+        $("#impersonateDialogModal span#loginid_status").html "<span style='color: #aa0000;' class='glyphicon glyphicon-remove'></span>"
         $(".modal-footer a.btn-primary").attr("disabled", true).addClass "disabled"
         @impersonate_user = null
 
