@@ -1,4 +1,4 @@
-//= require jquery
+// jQuery is loaded first via CDN in the 'application' layout view
 //= require jquery_ujs
 //
 //= require underscore
@@ -11,7 +11,6 @@
 //= require bootstrap-modal-alert
 //= require jquery.tokeninput-modified
 //= require routes
-//= require jquery.filedrop
 //= require jquery.timeago
 //
 //= require dss-rm

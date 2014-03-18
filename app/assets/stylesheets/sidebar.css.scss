@@ -76,6 +76,7 @@ input#search_sidebar {
         margin-top: 2px;
         margin-left: 0px;
         margin-right: 8px;
+        color: #333;
       }
 
       &:hover {
@@ -90,9 +91,9 @@ input#search_sidebar {
     }
   
     li.person {
-      background-color: #D9EDF7;
-      border-color: #BCE8F1;
-      color: #3A87AD;
+//      background-color: #D9EDF7;
+//      border-color: #BCE8F1;
+//      color: #3A87AD;
       
       background-color: whiteSmoke;
       border-color: #ccc;
@@ -104,9 +105,9 @@ input#search_sidebar {
     }*/
 
     li.group {
-      background-color: #DFF0D8;
-      border-color: #D6E9C6;
-      color: #468847;
+//      background-color: #DFF0D8;
+//      border-color: #D6E9C6;
+//      color: #468847;
       
       background-color: whiteSmoke;
       border-color: #ccc;
@@ -114,11 +115,10 @@ input#search_sidebar {
       
       
       .badge {
-        background-color: #468847;
+//        background-color: #468847;
         
         background-color: #333;
         color: whiteSmoke;
-        
       }
     }
     /*li.group.highlighted {
