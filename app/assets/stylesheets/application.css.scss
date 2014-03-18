@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+@import "bootstrap-disable-responsiveness";
 @import "bootstrap-overrides"; // this needs to be converted to simply using SASS variables
 @import "token-input-facebook";
 @import "token-input-overrides";
@@ -7,6 +8,7 @@
 @import "groups";
 @import "sidebar";
 @import "typeahead";
+
 
 //.navbar-inverse {
 //  background-color: #335379; //#002855;
@@ -55,7 +57,7 @@ input#search_applications {
 }
 
 #main-body {
-  margin-top: 43px;
+  margin-top: 97px;
 }
 
 .status-bar {
@@ -87,10 +89,10 @@ ul.token-input-list-facebook {
   margin-bottom: 9px;
 }
 
-div#modal_container tr.fields button {
-  margin-top: -8px;
-  margin-left: 4px;
-}
+//div#modal_container tr.fields button {
+//  margin-top: -8px;
+//  margin-left: 4px;
+//}
 
 /* Twitter Bootstrap modifications (check here for problems when upgrading) */
 /* TB assumes .tab-content>.tab-pane but we have .tab-content>form>.tab-pane in details modals */

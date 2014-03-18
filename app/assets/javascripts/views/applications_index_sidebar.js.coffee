@@ -1,7 +1,7 @@
 DssRm.Views.ApplicationsIndexSidebar = Backbone.View.extend(
   tagName: "div"
   id: "sidebar-area"
-  className: "col-md-3 disable-text-select"
+  className: "col-xs-3 disable-text-select"
   
   initialize: (options) ->
     @$el.html JST["templates/applications/sidebar"]()

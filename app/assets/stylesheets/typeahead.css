@@ -187,3 +187,10 @@ fieldset[disabled] .twitter-typeahead .tt-input {
 .tt-dropdown-menu .tt-suggestion p {
   margin: 0;
 }
+
+.typeahead.form-control[disabled],
+.typeahead.form-control[readonly], fieldset[disabled] .typeahead.form-control {
+    cursor: not-allowed;
+    background-color: white;
+    opacity: 1;
+}

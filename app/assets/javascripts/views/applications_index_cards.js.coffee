@@ -1,7 +1,7 @@
 DssRm.Views.ApplicationsIndexCards = Backbone.View.extend(
   tagName: "div"
   id: "cards-area"
-  className: "col-md-9 disable-text-select"
+  className: "col-xs-9 disable-text-select"
   events:
     "click #cards" : "deselectAll"
   

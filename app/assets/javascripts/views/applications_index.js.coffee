@@ -1,7 +1,7 @@
 DssRm.Views.ApplicationsIndex = Backbone.View.extend(
   tagName: "div"
   id: "applications"
-  className: "row"
+  className: "row col-xs-12"
   
   initialize: (options) ->
     @$el.html JST["templates/applications/index"]()
@@ -26,13 +26,11 @@ DssRm.Views.ApplicationsIndex = Backbone.View.extend(
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       # `states` is an array of state names defined in "The Basics"
       local: $.map(states, (state) -> { value: state })
- 
+      
     # kicks off the loading/processing of `local` and `prefetch`
     states.initialize()
- 
-    debugger
     
-    @$('.unified-search-bar .typeahead').typeahead
+    $('.unified-search-bar .typeahead').typeahead
       hint: true,
       highlight: true,
       minLength: 1

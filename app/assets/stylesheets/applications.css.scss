@@ -45,11 +45,19 @@
 }
 
 #cards-area,#sidebar-area {
-  margin-top: 62px;
+  margin-top: 10px;
+}
+
+#unified-search-bar-container {
+  text-align: center;
+  width: 85%;
+  margin: auto auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .unified-search-bar {
-  position: fixed;
+  position: absolute;
   top: 51px;
   left: 0px;
   background-color: #eee;
@@ -88,11 +96,7 @@ h5.counter {
   border-bottom-color: #B3B3B3;
   border-radius: 4px;
   border-width: 1px;
-  /*-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);*/
   color: #333;
-  /*float: none !important;*/
   margin: 15px;
   margin-top: 0;
   padding-bottom: 4px;
