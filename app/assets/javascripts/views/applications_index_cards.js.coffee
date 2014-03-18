@@ -18,7 +18,7 @@ DssRm.Views.ApplicationsIndexCards = Backbone.View.extend(
     @$("#search_applications").on "keyup", (e) =>
       entry = $(e.target).val()
       DssRm.view_state.focusApplicationByTerm entry
-
+    
     # @$("#search_applications").typeahead
     #   minLength: 3
     #   sorter: (items) -> # required to keep the order given to process() in 'source'

@@ -12,6 +12,7 @@
 //= require jquery.tokeninput-modified
 //= require routes
 //= require jquery.timeago
+//= require typeahead.bundle
 //
 //= require dss-rm
 //
